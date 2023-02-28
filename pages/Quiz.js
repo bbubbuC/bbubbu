@@ -3,7 +3,7 @@ import styles from '@/styles/quiz.module.scss'
 
 const Quiz = () => {
   return (
-    <div>Quikmimmz</div>
+    <div>Quikminunnjnjnjnjmmz</div>
   )
 }
 
