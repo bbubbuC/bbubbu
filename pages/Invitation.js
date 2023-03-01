@@ -3,7 +3,7 @@ import styles from '@/styles/invitation.module.scss'
 
 const invitation = () => {
   return (
-    <div>invitationdauntest</div>
+    <div>invitationdauntestbbb</div>
   )
 }
 
