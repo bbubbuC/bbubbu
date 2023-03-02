@@ -1,1 +1,228 @@
+$border: 4px solid #000;
+
+main.main{
+    margin: 60px auto;
+    width: calc(100% - 300px);
+}
+
+section.iconBox{
+    width: 75px;
+    position: absolute;
+    right: 65px;
+    margin-top: 20px;
+    .icon01{
+        width: 100%;
+        height: 75px;
+        background-image: url("/img/main/icon01.png");
+        background-size : cover;
+        margin-bottom: 15px;
+        &:hover{
+            animation: rotate_image 5s linear infinite; transform-origin: 50% 50%;
+        }
+    }
+    .icon02{
+        width: 100%;
+        height: 75px;
+        background-image: url("/img/main/icon02.png");
+        background-size : cover;
+        margin-bottom: 15px;
+        &:hover{
+            background-image: url("/img/main/icon03.png");
+        }
+    }
+    .icon03{
+        width: 100%;
+        height: 75px;
+        background-image: url("/img/main/icon04.png");
+        background-size : cover;
+        &:hover{
+            background-image: url("/img/main/icon05.png");
+        }
+    }
+}
+
+@keyframes rotate_image{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+section.box01{
+    display: flex;
+    width: 100%;    
+    margin-bottom: 50px;
+}
+
+div.introduce{
+    width: 38vw;
+    height: 360px;
+    border: $border;
+    margin-right: 3%;
+    background-image: url("/img/main/bbuu.png");
+    background-repeat: no-repeat;
+    background-size : cover;
+}
+
+div.community{
+    width: 40vw;
+    height: 360px;
+    border: $border;
+    background-color: #3A9FBB;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 40vw;
+        height: 360px;
+        background-image: url("/img/common/community.png");
+        background-repeat: no-repeat;
+        background-size: 32vw;
+        background-position: center;
+        border: $border;
+        background-color: #ffffff;
+        top: -15px;
+        left: 9px;
+        transition: 300ms;
+        // padding: 100px 0px 0px 80px;
+    }
+    &:hover{
+        &::after{
+            top: -4px;
+            left: -4px;
+        }
+    }
+}
+
+
+
+
+
+section.box02{
+    display: flex;
+    width: 100%;    
+}
+
+div.checkList{
+    width: 17.65vw;
+    height: 280px;
+    border: $border;
+    background-color: #e897bf;
+    margin-right: 3vw;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 17.65vw;
+        height: 280px;
+        background-image: url("/img/main/checkList.png");
+        background-repeat: no-repeat;
+        background-size: 10vw;
+        background-position: center;
+        border: $border;
+        background-color: #ffffff;
+        top: -15px;
+        left: 9px;
+        transition: 300ms;
+    }
+    &:hover{
+        &::after{
+            top: -4px;
+            left: -4px;
+        }
+    }
+}
+
+div.invitation{
+    width: 17.65vw;
+    height: 280px;
+    border: $border;
+    background-color: #e897bf;
+    position: relative;
+    margin-right: 3vw;
+    &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 17.65vw;
+        height: 280px;
+        background-image: url("/img/main/invitation.png");
+        background-repeat: no-repeat;
+        background-size: 10vw;
+        background-position: center;
+        border: $border;
+        background-color: #ffffff;
+        top: -15px;
+        left: 9px;
+        transition: 300ms;
+    }
+    &:hover{
+        &::after{
+            top: -4px;
+            left: -4px;
+        }
+    }
+}
+
+div.quiz{
+    width: 17.65vw;
+    height: 280px;
+    border: $border;
+    background-color: #e897bf;
+    margin-right: 3vw;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 17.65vw;
+        height: 280px;
+        background-image: url("/img/main/quiz.png");
+        background-repeat: no-repeat;
+        background-size: 10vw;
+        background-position: center;
+        border: $border;
+        background-color: #ffffff;
+        top: -15px;
+        left: 9px;
+        transition: 300ms;
+    }
+    &:hover{
+        &::after{
+            top: -4px;
+            left: -4px;
+        }
+    }
+}
+
+div.sdm{
+    width: 17.65vw;
+    height: 280px;
+    border: $border;
+    background-color: #e897bf;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 17.65vw;
+        height: 280px;
+        background-image: url("/img/main/sdm.png");
+        background-repeat: no-repeat;
+        background-size: 10vw;
+        background-position: center;
+        border: $border;
+        background-color: #ffffff;
+        top: -15px;
+        left: 9px;
+        transition: 300ms;
+    }
+    &:hover{
+        &::after{
+            top: -4px;
+            left: -4px;
+        }
+    }
+}
 

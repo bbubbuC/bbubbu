@@ -3,7 +3,7 @@ import styles from '@/styles/login.module.scss'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div>testttttttttttttttttttttttttttt</div>
   )
 }
 
