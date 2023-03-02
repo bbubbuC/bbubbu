@@ -2,6 +2,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/main.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import Weather from './Weather'
 
 //const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +18,7 @@ export default function Home() {
 
         <section className={styles.box01}>
           <div className={styles.introduce}>
+            <Weather></Weather>
           </div>
           <Link  href="/Community">
             <div className={styles.community}>
