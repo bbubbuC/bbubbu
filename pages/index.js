@@ -1,5 +1,6 @@
 import { Inter } from '@next/font/google'
 import styles from '@/styles/main.module.scss'
+import Image from 'next/image'
 import Link from 'next/link'
 
 //const inter = Inter({ subsets: ['latin'] })
@@ -8,21 +9,37 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <div>
-          <Link href="/Community">community</Link>
-        </div>
-        <div>
-          <Link href="/CheckList">check list</Link>
-        </div>
-        <div>
-          <Link href="/Invitation">invitation</Link>
-        </div>
-        <div>
-          <Link href="/Quiz">quiz</Link>
-        </div>
-        <div>
-          <Link href="/SDM">SDM</Link>
-        </div>
+
+        <section className={styles.iconBox}>
+          <div className={styles.icon01}></div>
+          <div className={styles.icon02}></div>
+          <div className={styles.icon03}></div>
+        </section>
+
+        <section className={styles.box01}>
+          <div className={styles.introduce}>
+          </div>
+          <Link  href="/Community">
+            <div className={styles.community}>
+            </div>
+          </Link>
+        </section>
+
+        <section className={styles.box02}>
+          <Link href="/CheckList">
+            <div className={styles.checkList}></div>
+          </Link>
+          <Link href="/Invitation">
+            <div className={styles.invitation}></div>
+          </Link>
+          <Link href="/Quiz">
+            <div className={styles.quiz}></div>
+          </Link>
+          <Link href="/SDM">
+            <div className={styles.sdm}></div>
+          </Link>
+        </section>
+
       </main>
     </>
   )
