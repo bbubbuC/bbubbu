@@ -3,7 +3,7 @@ import styles from '@/styles/quiz.module.scss'
 
 const Quiz = () => {
   return (
-    <div>Quikdjkfhdkfjghdlfkjhlkmz</div>
+    <div>Quiz 대신 밸런스게임</div>
   )
 }
 

@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-
         <section className={styles.iconBox}>
           <div className={styles.icon01}></div>
           <div className={styles.icon02}></div>
@@ -39,6 +38,7 @@ export default function Home() {
             <div className={styles.sdm}></div>
           </Link>
         </section>
+
 
       </main>
     </>
