@@ -23,6 +23,9 @@ export default function Home() {
         <div>
           <Link href="/SDM">SDM</Link>
         </div>
+        <div>
+          <Link href="/Weather">Weather</Link>
+        </div>
       </main>
     </>
   )
