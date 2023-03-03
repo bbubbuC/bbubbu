@@ -1,7 +1,8 @@
 $border: 4px solid #000;
 
 //초기화 css
-body, html, p ,main{
+body, html, p ,main, input, b, a, ul, li, div, h1, h2,
+h4, h5, h6, section, article{
     margin: 0;
     padding: 0;
 }
@@ -37,6 +38,22 @@ ul, li{
     }
     border-bottom: 2px solid #000;
 }
+
+//scrollbar
+body::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+    height: 10vh; /* 스크롤바의 길이 */
+    background: #df9df2; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f4cdff00;  /*스크롤바 뒷 배경 색상*/
+}
+
 
 div.H1{
     width: 350px;
