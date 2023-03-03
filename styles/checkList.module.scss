@@ -1,0 +1,54 @@
+$border: 4px solid #000;
+
+section.note{
+    width: 60vw;
+    height: 65vh;
+    border: $border;
+    background-color: #FFFDC7;
+    margin: 50px auto 0px auto;
+    position: relative;
+    div.buttonBox{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 30px;
+        right: -100px;
+        button{
+            width: 45px;
+            height: 45px;
+            border: $border;
+            border-radius: 50%;
+            margin-bottom: 13px;
+            transition: 300ms;
+            &:hover{
+                transform: scale(1.05);
+            }
+            &:nth-child(1){
+                background-color: #FFFDC7;
+            }
+            &:nth-child(2){
+                background-color: #FFD1C7;
+            }
+            &:nth-child(3){
+                background-color: #E2FFE5;
+            }
+            &:nth-child(4){
+                background-color: #BAF3FB;
+            }
+            &:nth-child(5){
+                background-color: #D8C1FF;
+            }
+            &:nth-child(6){
+                background-color: #FFFFFF;
+            }
+            
+        }
+    }
+}
+
+
+div.line{
+    position: relative;
+    bottom: 200px;
+    z-index: -1;
+}

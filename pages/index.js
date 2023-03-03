@@ -18,9 +18,9 @@ export default function Home() {
 
         <section className={styles.box01}>
           <div className={styles.introduce}>
-            <Weather></Weather>
+            {/* <Weather></Weather> */}
           </div>
-          <Link  href="/Community">
+          <Link href="/Community">
             <div className={styles.community}>
             </div>
           </Link>

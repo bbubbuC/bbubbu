@@ -3,7 +3,9 @@ import styles from '@/styles/invitation.module.scss'
 
 const invitation = () => {
   return (
-    <div>invitationdauntestbbb</div>
+    <>
+      <div className="H1">청첩장만들기</div>
+    </>
   )
 }
 
