@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Weather = () => {
     const [data,setData] = useState(); 
@@ -12,11 +13,14 @@ const Weather = () => {
     }
     
     data && console.log(data.data);
-
-    const weatherIcon = `http://openweathermap.org/img/wn/${data.data.weather[0].icon}@2x.png`;
-    const weatherTemp = data.data.main.temp + "℃";
-    const weatherRegion = data.data.name;
-
+    let weatherIcon;
+    let weatherTemp;
+    let weatherRegion;
+if(data){
+     weatherIcon = `http://openweathermap.org/img/wn/${data.data.weather[0].icon}@2x.png`;
+     weatherTemp = data.data.main.temp + "℃";
+     weatherRegion = data.data.name;
+}
     useEffect(()=>{
         window.navigator.geolocation.getCurrentPosition(Api);
     },[])
