@@ -3,7 +3,9 @@ import styles from '@/styles/community.module.scss'
 
 const community = () => {
   return (
-    <div>community</div>
+    <>
+      <div className="H1">COMMUNITY</div>
+    </>
   )
 }
 
