@@ -9,6 +9,7 @@ import Weather from './Weather'
 export default function Home() {
   return (
     <>
+    {/* test */}
       <main className={styles.main}>
         <section className={styles.iconBox}>
           <div className={styles.icon01}></div>
