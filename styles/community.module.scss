@@ -1,0 +1,104 @@
+$border: 4px solid #000;
+
+
+// $colors: (
+//   fill: #a972cb,
+//   pulse: #ef6eae, 
+//   close: #ff7f82, 
+//   raise: #ffa260, 
+//   up: #e4cb58, 
+//   slide: #8fc866, 
+//   offset: #19bc8b
+// );
+
+// @each $button, $color in $colors {
+//     .#{$button} {
+//       --color: #{$color};
+//       --hover: #{adjust-hue($color, 45deg)};
+//     }
+//   }
+
+//   .up:hover,
+// .up:focus {
+//   box-shadow: inset 0 -3.25em 0 0 var(--hover);
+// }
+
+// button {  
+//     color: var(--color);
+//     transition: 0.25s;
+    
+//     &:hover,
+//     &:focus { 
+//       border-color: var(--hover);
+//       color: #fff;
+//     }
+//   }
+
+div.bg01{
+    position: fixed;
+    top: 680px;
+    right: 50px;
+    z-index: -1;
+}
+
+div.bg02{
+    position: fixed;
+    top: 250px;
+    left: 150px;
+    z-index: -1;
+}
+
+article.container{
+    width: 60vw;
+    height: 10000px;
+    background-color: #fff;
+    border: $border;
+    margin: 0px auto;
+    position: relative;
+    div.category{
+        display: flex;
+        position: absolute;
+        top: -58px;
+        left: 0;
+        width: 100.4%;
+        div{
+            width: 40%;
+            height: 50px;
+            border: $border;
+            margin-left: -4px;
+            font-size: 21px;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //border-radius: 20px 20px 0px 0px;
+        }
+    }
+    div.sidebar{
+        position: sticky;
+        margin-left:100%;
+        top: 180px;
+        margin-top: 50px;
+        .sidebarW{
+            width: 140px;
+            height: 70px;
+            border: $border;
+            background-color: #FFC83B;
+            font-weight: bolder;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .sidebarI{
+            width: 100px;
+            height: 80px;
+            border: $border;
+            background-color: #FFAFAF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

@@ -21,7 +21,7 @@ const List = () => {
     useEffect(dataget,[])
     return (
         <>
-            <article>
+            <div>
                 <ul>
                     {
                         data && data.map(obj => (
@@ -34,8 +34,7 @@ const List = () => {
                     }
                     
                 </ul>
-                    <Link href='/Write'>글쓰기</Link>
-            </article>
+            </div>
         </>
     )
 }
