@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
-import Image from 'next/image'
 
 const Header = () => {
     return (
         <div className='header-box'>
             <Link href="/">
-                <Image className='logo' src="/img/common/bbubbulogo-04.png" alt='logo' width={150} height={40}/>
+                <div className='logo'>
+                    <div className='logoImg'></div>
+                </div>
             </Link>
             <div className='p-test'>
                 <p><Link href="/Login">로그인</Link></p>

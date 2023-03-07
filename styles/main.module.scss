@@ -81,14 +81,14 @@ div.community{
         background-position: center;
         border: $border;
         background-color: #ffffff;
-        top: -15px;
+        top: -25px;
         left: 9px;
         transition: 300ms;
         // padding: 100px 0px 0px 80px;
     }
     &:hover{
         &::after{
-            top: -4px;
+            top: -12px;
             left: -4px;
         }
     }
@@ -122,13 +122,13 @@ div.checkList{
         background-position: center;
         border: $border;
         background-color: #ffffff;
-        top: -15px;
+        top: -25px;
         left: 9px;
         transition: 300ms;
     }
     &:hover{
         &::after{
-            top: -4px;
+            top: -12px;
             left: -4px;
         }
     }
@@ -153,13 +153,13 @@ div.invitation{
         background-position: center;
         border: $border;
         background-color: #ffffff;
-        top: -15px;
+        top: -25px;
         left: 9px;
         transition: 300ms;
     }
     &:hover{
         &::after{
-            top: -4px;
+            top: -12px;
             left: -4px;
         }
     }
@@ -184,13 +184,13 @@ div.quiz{
         background-position: center;
         border: $border;
         background-color: #ffffff;
-        top: -15px;
+        top: -25px;
         left: 9px;
         transition: 300ms;
     }
     &:hover{
         &::after{
-            top: -4px;
+            top: -12px;
             left: -4px;
         }
     }
@@ -214,13 +214,13 @@ div.sdm{
         background-position: center;
         border: $border;
         background-color: #ffffff;
-        top: -15px;
+        top: -25px;
         left: 9px;
         transition: 300ms;
     }
     &:hover{
         &::after{
-            top: -4px;
+            top: -12px;
             left: -4px;
         }
     }
