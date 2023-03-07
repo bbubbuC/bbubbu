@@ -23,12 +23,12 @@ const community = () => {
     setSelectedCategory(category);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage(currentImage => (currentImage + 1) % images.length)
-    }, 1200)
-    return () => clearInterval(interval)
-  }, [])
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImage(currentImage => (currentImage + 1) % images.length)
+  //   }, 1200)
+  //   return () => clearInterval(interval)
+  // }, [])
 
   return (
     <>
@@ -74,7 +74,7 @@ const community = () => {
               <button className={styles.slide}>글 작성하기</button>
           </Link>
           <div className={styles.sidebarI}>
-            <Image src={images[currentImage]} alt='' width={60} height={60}/>
+            {/* <Image src={images[currentImage]} alt='' width={60} height={60}/> */}
           </div>
         </div>
       </article>
