@@ -32,7 +32,7 @@ export default function Home() {
             <div className={styles.checkList}></div>
           </Link>
           <Link href="/Invitation">
-            <div className={styles.invitation}></div>
+            <div className={styles.invitation}></div> 
           </Link>
           <Link href="/Quiz">
             <div className={styles.quiz}></div>

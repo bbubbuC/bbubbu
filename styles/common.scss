@@ -28,6 +28,13 @@ ul, li{
     display: flex;
     .logo{
         padding: 20px 150px;
+        .logoImg{
+            width: 150px;
+            height: 40px;
+            background-image: url("https://ifh.cc/g/jp6wXW.png");
+            background-size: cover;
+        }
+        
     }
     .p-test{
         display: flex;
