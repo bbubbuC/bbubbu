@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 import Image from 'next/image'
 import { signOut, useSession } from 'next-auth/react';
 
@@ -13,11 +12,11 @@ const Header = () => {
         return (
             <div>
                 <div className='header-box'>
-                   <Link href="/">
-                      <div className='logo'>
-                          <div className='logoImg'></div>
-                      </div>
-                  </Link>
+                    <Link href="/">
+                        <div className='logo'>
+                            <div className='logoImg'></div>
+                        </div>
+                    </Link>
                     <div className='p-test'>
                         <p><Link href="/Mypage">마이페이지</Link></p>
                         <p onClick={() => signOut()}>로그아웃</p>
@@ -31,7 +30,9 @@ const Header = () => {
             <div>
                 <div className='header-box'>
                     <Link href="/">
-                        <Image className='logo' src="/img/common/bbubbulogo-04.png" alt='logo' width={150} height={40} />
+                        <div className='logo'>
+                            <div className='logoImg'></div>
+                        </div>
                     </Link>
                     <div className='p-test'>
                         <p><Link href="/Login">로그인</Link></p>
