@@ -67,14 +67,14 @@ const Write = () => {
                         className={styles.title}
                         onChange={valueChange} 
                         type="text" 
-                        placeholder='제목' 
+                        placeholder='제목을 입력해주세요' 
                         name="nickname" 
                     />
                     <textarea 
                         className={styles.text}
                         onChange={valueChange} 
                         type="text" 
-                        placeholder='내용' 
+                        placeholder='내용을 입력해주세요' 
                         name="text" 
                     />
                     <input 

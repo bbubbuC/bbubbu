@@ -42,7 +42,6 @@ const community = () => {
       </div>
 
       <article className={styles.container}>
-
         <div className={styles.category}>
           <div
             className={selectedCategory === 'ALL' ? styles.selected : ''}
@@ -64,21 +63,20 @@ const community = () => {
           </div>
         </div>
 
-      <List/>
+        <List/>
 
-      <Bride/>
+        <Bride/>
 
-      <Groom/>
-    
-      <div className={styles.sidebar}> 
-        <Link href='/Write'>
-            <button className={styles.slide}>글 작성하기</button>
-        </Link>
-        <div className={styles.sidebarI}>
-          <Image src={images[currentImage]} alt='' width={60} height={60}/>
+        <Groom/>
+      
+        <div className={styles.sidebar}> 
+          <Link href='/Write'>
+              <button className={styles.slide}>글 작성하기</button>
+          </Link>
+          <div className={styles.sidebarI}>
+            <Image src={images[currentImage]} alt='' width={60} height={60}/>
+          </div>
         </div>
-      </div>
-
       </article>
       
     </>
