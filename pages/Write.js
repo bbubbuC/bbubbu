@@ -62,34 +62,29 @@ const Write = () => {
             </div>
 
             <article className={styles.container} style={{height:"55vh"}}>
-                <div>
-                    <form onSubmit={create}>
-                        <p>
-                            <input
-                                onChange={valueChange} 
-                                type="text" 
-                                placeholder='제목' 
-                                name="nickname" 
-                            />
-                        </p>
-                        <p>
-                            <input 
-                                onChange={valueChange} 
-                                type="text" 
-                                placeholder='내용' 
-                                name="text" 
-                            />
-                        </p>
-                        <p>
-                            <input 
-                                type="submit" 
-                                value="저장" 
-                            />
-                        </p>
-                    </form>
-                </div>
+                <form onSubmit={create}>
+                    <input
+                        className={styles.title}
+                        onChange={valueChange} 
+                        type="text" 
+                        placeholder='제목' 
+                        name="nickname" 
+                    />
+                    <textarea 
+                        className={styles.text}
+                        onChange={valueChange} 
+                        type="text" 
+                        placeholder='내용' 
+                        name="text" 
+                    />
+                    <input 
+                        className={styles.submit}
+                        type="submit" 
+                        value="저장" 
+                    />
+                </form>
 
-                <div className={styles.sidebar}> 
+                <div className={styles.sidebarW}> 
                     <button 
                         className={styles.slide} 
                         onClick={()=> {router.push("/Community")}}

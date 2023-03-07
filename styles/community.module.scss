@@ -29,16 +29,17 @@ div.bg02{
 
 article.container{
     width: 60vw;
-    // height: 500px;
-    height: auto;
+    height: 500px;
+    // height: auto;
     background-color: #fff;
     border: $border;
     margin: 0px auto;
     position: relative;
+
     div.category{
         display: flex;
         position: absolute;
-        top: -58px;
+        top: -50px;
         left: 0;
         width: 100.4%;
       
@@ -54,15 +55,18 @@ article.container{
             align-items: center;  
             background-color: #fff;
         }
+
         div.selected {
             background-color: #afd3ff;
         }
     }
+
     div.sidebar{
         position: sticky;
         margin-left:100%;
         top: 150px;
         margin-top: -20px;
+
         button.slide {  
             width: 140px;
             height: 70px;
@@ -75,16 +79,19 @@ article.container{
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+
             &:hover,
             &:focus { 
                 //border-color: var(--hover);
                 color: #000000;
             }
         }
+
         .slide:hover,
         .slide:focus {
             box-shadow: inset 6.7em 0 0 0 var(--hover);
         }
+
         .sidebarI{
             width: 100px;
             height: 80px;
@@ -95,15 +102,83 @@ article.container{
             justify-content: center;
         }
     }
+
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        input{
+            border: none;
+            &:focus{outline:none;}
+        }
+        input.title{
+            width: 80%;
+            height: 3vh;
+            margin-top: 5vh;
+            border-bottom: 1.5px solid #000;
+            padding: 15px;
+            font-size: 18px;
+        }
+        textarea.text{
+            width: 80%;
+            height: 30vh;
+            margin-top: 3vh;
+            border: none;
+            resize: none;
+            background: #E9F0FF;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 17px;
+            &:focus{outline:none;}
+        }
+        input.submit{
+            width: 300px;
+            height: 5vh;
+            margin-top: 3vh;
+        }
+    }
 }
 
 
-div.categoryV{
-    div{
-        display: none;
+div.sidebarW{
+    position: absolute;
+    top: 50px;
+    right: -140px;
+
+    button.slide {  
+        width: 140px;
+        height: 70px;
+        transition: 420ms;
+        background-color: #ffc83b;
+        border: $border;
+        font-weight: bolder;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        &:hover,
+        &:focus { 
+            //border-color: var(--hover);
+            color: #000000;
+        }
     }
-    div.display{
-        display: block;
+
+    .slide:hover,
+    .slide:focus {
+        box-shadow: inset 6.7em 0 0 0 var(--hover);
+    }
+
+    .sidebarI{
+        width: 100px;
+        height: 80px;
+        border: $border;
+        background-color: #FFAFAF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
