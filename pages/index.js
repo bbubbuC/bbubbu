@@ -12,8 +12,8 @@ export default function Home() {
     {/* test */}
       <main className={styles.main}>
         <section className={styles.iconBox}>
-          <div className={styles.icon01}></div>
           <div className={styles.icon02}></div>
+          <div className={styles.icon01}></div>
           <div className={styles.icon03}></div>
         </section>
 

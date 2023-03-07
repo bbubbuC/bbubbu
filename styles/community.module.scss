@@ -1,38 +1,17 @@
 $border: 4px solid #000;
 
+$colors: (
+  slide: rgb(255, 158, 79), 
+);
 
-// $colors: (
-//   fill: #a972cb,
-//   pulse: #ef6eae, 
-//   close: #ff7f82, 
-//   raise: #ffa260, 
-//   up: #e4cb58, 
-//   slide: #8fc866, 
-//   offset: #19bc8b
-// );
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
 
-// @each $button, $color in $colors {
-//     .#{$button} {
-//       --color: #{$color};
-//       --hover: #{adjust-hue($color, 45deg)};
-//     }
-//   }
 
-//   .up:hover,
-// .up:focus {
-//   box-shadow: inset 0 -3.25em 0 0 var(--hover);
-// }
-
-// button {  
-//     color: var(--color);
-//     transition: 0.25s;
-    
-//     &:hover,
-//     &:focus { 
-//       border-color: var(--hover);
-//       color: #fff;
-//     }
-//   }
 
 div.bg01{
     position: fixed;
@@ -50,7 +29,8 @@ div.bg02{
 
 article.container{
     width: 60vw;
-    height: 10000px;
+    // height: 500px;
+    height: auto;
     background-color: #fff;
     border: $border;
     margin: 0px auto;
@@ -61,6 +41,7 @@ article.container{
         top: -58px;
         left: 0;
         width: 100.4%;
+      
         div{
             width: 40%;
             height: 50px;
@@ -70,26 +51,39 @@ article.container{
             font-weight: bolder;
             display: flex;
             justify-content: center;
-            align-items: center;
-            //border-radius: 20px 20px 0px 0px;
+            align-items: center;  
+            background-color: #fff;
+        }
+        div.selected {
+            background-color: #afd3ff;
         }
     }
     div.sidebar{
         position: sticky;
         margin-left:100%;
-        top: 180px;
-        margin-top: 50px;
-        .sidebarW{
+        top: 150px;
+        margin-top: -20px;
+        button.slide {  
             width: 140px;
             height: 70px;
+            transition: 420ms;
+            background-color: #ffc83b;
             border: $border;
-            background-color: #FFC83B;
             font-weight: bolder;
             font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            &:hover,
+            &:focus { 
+                //border-color: var(--hover);
+                color: #000000;
+            }
+        }
+        .slide:hover,
+        .slide:focus {
+            box-shadow: inset 6.7em 0 0 0 var(--hover);
         }
         .sidebarI{
             width: 100px;
@@ -102,3 +96,14 @@ article.container{
         }
     }
 }
+
+
+div.categoryV{
+    div{
+        display: none;
+    }
+    div.display{
+        display: block;
+    }
+}
+

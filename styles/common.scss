@@ -1,10 +1,13 @@
 $border: 4px solid #000;
 
 //초기화 css
-body, html, p ,main, input, b, a, ul, li, div, h1, h2,
-h4, h5, h6, section, article{
+body, html, p ,main, input, b, a, ul, li, div, h1, h2, button
+h4, h5, h6, section, article, span{
     margin: 0;
     padding: 0;
+}
+*{
+    box-sizing: border-box;
 }
 
 a{

@@ -26,7 +26,7 @@ const List = () => {
                     {
                         data && data.map(obj => (
                             <li key={obj.id}>
-                                {obj.id} {obj.nickname} / {obj.date} / {obj.text}
+                                {obj.nickname} / {obj.date} / {obj.text}
                                 <button onClick={() => router.push({ pathname: '/Update', query: obj })}>수정</button>
                                 <button onClick={() => dataDelete(obj.id)}>삭제</button>
                             </li>
