@@ -2,12 +2,15 @@ import React from "react";
 import styles from '@/styles/edit.module.scss';
 
 const Edit = () => {
+    function create(e) { 
+        // e.preventDefault(e);
+    }
     return(
         <main className={styles.main}>
             <h2 className={styles.title}>EDIT</h2>
             <div className={styles.container}>
                 <img className={styles.smile} src="/img/edit/smile.png" />
-                <form>
+                <form onSubmit={create}>
                     <div className={styles.nickname}>
                         <label for="nickname">닉네임</label> <br />
                         <input type="text" placeholder="닉네임을 입력해주세요" name="nickname" />
@@ -22,7 +25,7 @@ const Edit = () => {
                     </div>
                     <div className={styles.weddingday}>
                         <label for="weddingday">예식일</label> <br />
-                        <input type="date" name="weddingday" />
+                        <input type="date" name="weddingday" placeholder="YYYY-MM-DD" />
                         <input type="button" value="아직 결정되지 않았어요" />
                     </div>
                     <div className={styles.profile}>
