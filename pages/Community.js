@@ -78,8 +78,10 @@ const community = () => {
               <button className={styles.slide}>글 작성하기</button>
           </Link>
           <div className={styles.sidebarI}>
+
             {/* <Image src={images[currentImage]} alt='' width={60} height={60}/> */}
             <Image src="/img/community/icon06.png" alt='' width={60} height={60}/>
+
           </div>
         </div>
       </article>
