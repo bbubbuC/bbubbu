@@ -7,29 +7,10 @@ import { DbContext } from './component/MyContext';
 const CheckList = () => {
 
   const { todoData, todoDataFun } = useContext(DbContext);
-  const note = useRef();
-  const elInput = useRef();
   const initial = { todo: '' };
   const [inputValue, setInputValue] = useState(initial);
   const [editingId, setEditingId] = useState(null);
 
-  const create =(e) => {
-      e.preventDefault();
-      todoDataFun('post',{...inputValue});
-      elInput.current.value = "";
-      elInput.current.focus();
-  }
-
-  function dataget() {
-    todoDataFun('get')
-  }
-
-  const valueChange = (e) => {
-    let t = e.target;
-    setInputValue((obj) => {
-        return { ...obj, [t.name]: t.value }
-    })
-  }
 
   function dataEdit(id) {
     const todo = todoData.find(obj => obj.id === id);
@@ -42,29 +23,18 @@ const CheckList = () => {
     todoDataFun('put', { id: editingId, todo: inputValue.todo });
     setInputValue(initial);
     setEditingId(null);
-    window.location.reload();
-  }
-  
-
-  function dataDelete(id) {
-    todoDataFun('delete',id)
   }
 
-  useEffect(dataget,[])
 
   return (
     <>
-      <div className="H1">CHECK LIST</div>
-
-      <section ref={note} className={styles.note}>
-
+      <section className={styles.note}>
         <form onSubmit={editingId !== null ? edit : create}>
           <input 
-            ref={elInput}
             type="text" 
             className={styles.textInput}
             onChange={valueChange} 
-            value={inputValue.todo.todo}
+            value={inputValue.todo}
             placeholder='결혼식 전 체크리스트를 작성해주세요!' 
             name="todo" 
           />
@@ -92,22 +62,16 @@ const CheckList = () => {
           }
         </div>
 
-        <div className={styles.buttonBox}>
-          <button onClick={()=>{note.current.style="background:#FFFDC7"}}></button>
-          <button onClick={()=>{note.current.style="background:#FFD1C7"}}></button>
-          <button onClick={()=>{note.current.style="background:#E2FFE5"}}></button>
-          <button onClick={()=>{note.current.style="background:#ade5ec"}}></button>
-          <button onClick={()=>{note.current.style="background:#D8C1FF"}}></button>
-          <button onClick={()=>{note.current.style="background:#FFFFFF"}}></button>
-        </div>
-
       </section>
 
-      <div className={styles.line}>
-        <Image src="/img/main/line.png" alt='' width={280} height={160}/>
-      </div>
     </>
   )
 }
 
 export default CheckList
+
+
+// 위 코드에서는 editingId를 사용하여 현재 수정 중인 todo의 id를 저장합니다. 
+// 수정 버튼을 누르면 dataEdit 함수가 호출되어 해당 todo의 값을 input에 채웁니다. 
+// 수정 후에는 editingId와 inputValue를 초기화하여 
+// 새로운 todo를 추가할 수 있도록 합니다.
