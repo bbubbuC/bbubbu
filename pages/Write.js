@@ -43,12 +43,12 @@ const Write = () => {
         })
     }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImage(currentImage => (currentImage + 1) % images.length)
-        }, 1200)
-        return () => clearInterval(interval)
-    }, [])
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentImage(currentImage => (currentImage + 1) % images.length)
+    //     }, 1200)
+    //     return () => clearInterval(interval)
+    // }, [])
 
     return (
         <>
@@ -92,7 +92,8 @@ const Write = () => {
                         돌아가기
                     </button>
                     <div className={styles.sidebarI}>
-                        <Image src={images[currentImage]} alt='' width={60} height={60}/>
+                        {/* <Image src={images[currentImage]} alt='' width={60} height={60}/> */}
+                        <Image src= '/img/community/icon06.png' alt='' width={60} height={60}/>
                     </div>
                 </div>
 

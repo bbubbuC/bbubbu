@@ -2,14 +2,17 @@
     width : 85%;
     margin: 0 auto;
     /* margin: 20px auto;    */
+
 }
 
 .container {
     padding-top: 1em;
     margin-top: 1em;
+
 }
 
-a.button {
+button.button {
+    font-size: 24px;
     display: block;
     /* position: relative; */
     /* float: left; */
