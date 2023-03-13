@@ -11,8 +11,6 @@ $colors: (
   }
 }
 
-
-
 div.bg01{
     position: fixed;
     top: 680px;
@@ -29,8 +27,8 @@ div.bg02{
 
 article.container{
     width: 60vw;
-    height: 500px;
-    // height: auto;
+    // height: 500px;
+    height: auto;
     background-color: #fff;
     border: $border;
     margin: 0px auto;
@@ -62,13 +60,11 @@ article.container{
     }
 
     div.sidebar{
-        position: fixed;
+        position: absolute;
         display: flex;
-        bottom: 3%;
-        right: 2%;
-        // margin-left:100%;
-        // top: 150px;
-        // margin-top: -130px;
+        flex-direction: column;
+        top: 50px;
+        right: -140px;
 
         button.slide {  
             width: 140px;
@@ -81,7 +77,7 @@ article.container{
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-bottom: 15px;
 
             &:hover,
             &:focus { 
@@ -151,7 +147,6 @@ article.container{
     }
 }
 
-
 div.sidebarW{
     position: absolute;
     top: 50px;
@@ -199,4 +194,155 @@ div.sidebarW{
 
 .none{
     display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.listBox{
+    width: 90%;
+    height: auto;
+    border: 2px solid #000;
+    margin: 40px auto;
+    border-radius: 10px;
+    .top{
+        border-bottom: 2px solid #000;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #c6dcc92e;
+        .profile{
+            display: flex;
+            .nickname{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 10px;
+                p{
+                    font-size: 12px;
+                    color: #282828;
+                    display: inline;
+                }
+            }
+        }
+        .BTN{
+            display: flex;
+            align-items: center;
+            button{
+                width: 28px;
+                height: 28px;
+                border: none;
+                background-color: transparent;
+                margin-left: 10px;
+                transition: 350ms;
+                transform: scale(0.95);
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+      
+    }
+    .middle{
+        width: 100%;
+        border-bottom: 2px solid #000;
+        padding: 30px 15px;  
+        word-break:break-all;
+        p{
+            width: 100%; 
+        }
+    }
+    .bottom{
+        width: 100%;
+        padding: 10px 25px 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .bottom01{
+            display: flex;
+            align-items: center;
+            b{
+                margin-right: 10px;
+                cursor: pointer;
+                transition: 400ms;
+                color: #474747;
+                &:hover{
+                    transform: scale(1.05);
+                    color: #2b2b2b;
+                }
+            }
+            div{
+                display: flex;
+                button{
+                    display: flex;
+                    align-items: center;
+                    background-color: #fff;
+                    border-radius: 50px;
+                    margin: 0px 5px;
+                    padding: 4px 9px;
+                    p{
+                        font-size: 17px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+        .like{
+            border: none;
+            background-color: transparent;
+            width: 26px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+
+    }
+    .comment{
+        padding: 10px 15px;
+        .commentInput{
+            display: flex;
+            align-items: center;
+            input{
+                width: 40%;
+                height: 30px;
+                margin-right: 10px;
+                padding: 0px 10px;
+            }
+            button{
+                width: 7%;
+                height: 30px;
+                border: none;
+                background-color: #c6dcc9a3;
+            }
+        }
+        .profileC{
+            display: flex;
+            flex-direction: column;
+            padding: 15px 0px;
+        }
+        .profileCC{
+            display: flex;
+            align-items: center;
+            p{
+                font-weight: bold;
+                font-size: 15px;
+                color: #282828;
+                margin-left: 10px;
+            }
+        }
+        p{
+            color: #282828;
+            margin-top: 8px;
+        }
+    }
 }

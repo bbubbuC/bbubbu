@@ -108,11 +108,22 @@ async function handler(req, res) {
             else {
                 res.json({ message: '사용 가능한 아이디 입니다.' })
             }
+            
         }
         catch (err) {
             res.send(err);
         }
     }
+
+    // if (req.method === 'GET') {
+    //     try {
+    //         const users = await prisma.users.findMany()
+    //         res.json(users)
+    //     } catch (err) {
+    //         res.send(err)
+    //     }
+    // }
+      
 }
 
 
