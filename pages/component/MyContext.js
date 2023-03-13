@@ -1,11 +1,29 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
+import { PrismaClient } from '@prisma/client';
 export const DbContext = createContext(null);
 
 const MyContext = ({ children }) => {
 
+
     const [data, setData] = useState();
     const [todoData, todoSetData] = useState();
+
+    const [users, setUsers] = useState();
+
+
+    async function userData(type, obj) {
+        console.log(type, obj)
+        if (type == 'get') {
+            await axios.get('/api/auth/test', {
+            }).then((aa) => {
+                setUsers(aa.data)
+            })
+        }
+    }
+    console.log("aaa", users)
+
+
 
     async function dataFun(type, obj) {
         let trans;
@@ -49,15 +67,16 @@ const MyContext = ({ children }) => {
     useEffect(() => {
         dataFun('get');
         todoDataFun("get");
+        userData('get');
     }, [])
 
 
 
 
-    
+
 
     return (
-        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun }}>
+        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, users }}>
             {children}
         </DbContext.Provider>
     )
