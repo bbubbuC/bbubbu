@@ -80,6 +80,7 @@ section.note{
         position: absolute;
         top: 30px;
         right: -100px;
+        align-items: center;
         button{
             width: 45px;
             height: 45px;
@@ -113,9 +114,12 @@ section.note{
     }
 }
 
-
 div.line{
     position: absolute;
     bottom: 200px;
     z-index: -1;
+}
+
+.checked{
+    display: none;
 }

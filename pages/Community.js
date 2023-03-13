@@ -6,7 +6,7 @@ import Groom from './component/community/Groom'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const community = () => {
+const Community = () => {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
@@ -90,4 +90,4 @@ const community = () => {
   )
 }
 
-export default community
+export default Community
