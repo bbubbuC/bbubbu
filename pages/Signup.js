@@ -106,6 +106,8 @@ export default function Signup(props) {
     if (status === "authenticated") {
         router.replace("/");
     }
+
+    //아이디 중복확인
     async function IDchack() {
         let target = nameInputRef.current.value;
         await axios.get('/api/auth/signup', {

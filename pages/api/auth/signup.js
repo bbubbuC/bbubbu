@@ -5,7 +5,7 @@ import { hashPassword } from '../../../lib/auth';
 async function handler(req, res) {
     // Loading prisma client
     let prisma = new PrismaClient();
-    console.log(req.body)
+    // console.log(req.body)
 
     if (req.method === 'POST') {
         const data = req.body;
@@ -15,7 +15,7 @@ async function handler(req, res) {
         if (!gprofile && !bprofile) {
             res.status(422).json({
                 message:
-                    'dfdf.',
+                    '프로필을 선택해주세요.',
                 error: true,
             });
             return;
@@ -102,6 +102,7 @@ async function handler(req, res) {
                     name: req.query.id
                 }
             })
+            // console.log(user)
             if (user) {
                 res.json({ message: '이미 등록된 아이디 입니다.' })
             }
@@ -114,6 +115,7 @@ async function handler(req, res) {
         }
     }
 }
+
 
 
 
