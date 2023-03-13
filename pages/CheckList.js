@@ -76,20 +76,26 @@ const CheckList = () => {
         </form>
 
         <div className={styles.textBox}>
-          {
-            todoData && todoData.map(obj => (
+          {todoData &&
+            todoData.map((obj) => (
               <div key={obj.id} className={styles.textList}>
                 <div className={styles.check}>
-                  <input type="checkbox"/>
+                  <input type="checkbox" onChange={(e) => {
+                    const checked = e.target.checked;
+                    if (checked) {
+                      e.target.parentNode.parentNode.classList.add(styles.checked);
+                    } else {
+                      e.target.parentNode.parentNode.classList.remove(styles.checked);
+                    }
+                  }} />
                   <p>{obj.todo}</p>
                 </div>
                 <div className={styles.btnBox}>
                   <button onClick={() => dataEdit(obj.id)}>수정</button>
                   <button onClick={() => dataDelete(obj.id)}>삭제</button>
                 </div>
-              </div>    
-            ))
-          }
+              </div>
+            ))}
         </div>
 
         <div className={styles.buttonBox}>

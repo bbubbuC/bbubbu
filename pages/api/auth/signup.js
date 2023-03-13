@@ -5,6 +5,7 @@ import { hashPassword } from '../../../lib/auth';
 async function handler(req, res) {
     // Loading prisma client
     let prisma = new PrismaClient();
+    console.log(req.body)
 
     if (req.method === 'POST') {
         const data = req.body;
