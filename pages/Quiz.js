@@ -34,25 +34,49 @@ useEffect(() => {
 if (showIntro) {
   return (
     <div className={styles.intro}>
-      <img src='/img/quiz/quizIntro.png' />
+      <img className={styles.bbu} src='/img/quiz/bbu.png' />
+      <img className={styles.front} src='/img/quiz/introFront.png' />
     </div>
   );
 }
 
 if (quizNum === 13) {
   return (
-    <div className={styles.result}>
-      <div className={styles.resultContainer}>
-        <p>나의 취향은:</p>
-        {
-          collect.map((item, key) => (
-          <p key={key}>{item}</p>))
-        }
-        <Link href="/Mypage">
-            <img src='/img/quiz/rocket.png' />
-          </Link>
+    <main className={styles.main}>
+      <div className={styles.result}>
+        <div className={styles.computer}>
+          <div className={styles.icon}>
+            <img src='/img/quiz/icon01.png'/>
+            <img src='/img/quiz/icon02.png'/>
+            <img src='/img/quiz/icon03.png'/>
+          </div>
+          <div className={styles.resultContainer}>
+            <p>마이페이지로</p>
+            <Link href="/Mypage">
+              <img src='/img/quiz/screen.png' />
+            </Link>
+        </div>
+        </div>
+        <div className={styles.vase}>
+          <img className={styles.rstem} src='/img/quiz/rightStem.png'/>
+          <img className={styles.lstem} src='/img/quiz/leftStem.png'/>
+          <img className={styles.fvase} src='/img/quiz/vase.png'/>
+          <img className={styles.rflower} src='/img/quiz/rightFlower.png'/>
+          <img className={styles.lflower} src='/img/quiz/leftFlower.png'/>
+        </div> 
+        <div className={styles.candle}>
+          <img src='/img/quiz/candlelight.png'/>
+        </div>
+        <div className={styles.post}>
+          <h2>MY CHOICE</h2>
+          {
+            collect.map((item,key) => (
+              <p key={key}>{item}</p>
+            ))
+          }
+        </div>
       </div>
-    </div>
+    </main> 
   );
 }
   return (
@@ -60,18 +84,69 @@ if (quizNum === 13) {
       <div className={styles.back}>
         <div className={bg?`${styles.container}`:`${styles.container} ${styles.noneContainer}`}>
           <section className={styles.start} >
-            <p>Move to Quiz</p>
-            <p>"Choose a better one"</p>
-            <div className={styles.btn} onClick={() => setBg(false)}>
-              <p>Get Started</p>
-              <img className={styles.rocket} src='/img/quiz/rocket.png' />
-              <img src='/img/quiz/rcloud.png' />
+            <div className={styles.computer}>
+              <div className={styles.icon}>
+                <img src='/img/quiz/icon01.png'/>
+                <img src='/img/quiz/icon02.png'/>
+                <img src='/img/quiz/icon03.png'/>
+              </div>
+              <div className={styles.hscreen}>
+                <img src='/img/quiz/heartscreen.png'/>
+              </div>
+              <div className={styles.screen} onClick={() => setBg(false)}>
+                <img src='/img/quiz/screen.png'/>
+                <p>MOVE TO QUIZ</p> 
+              </div>
             </div>
-          </section>
+            <div className={styles.vase}>
+              <img className={styles.rstem} src='/img/quiz/rightStem.png'/>
+              <img className={styles.lstem} src='/img/quiz/leftStem.png'/>
+              <img className={styles.fvase} src='/img/quiz/vase.png'/>
+              <img className={styles.rflower} src='/img/quiz/rightFlower.png'/>
+              <img className={styles.lflower} src='/img/quiz/leftFlower.png'/>
+            </div>
+            <div className={styles.candle}>
+              <img src='/img/quiz/candlelight.png'/>
+            </div>
+            <div className={styles.post}>
+              <h2>MY CHOICE</h2>
+            </div>
+          </section>  
           <section className={styles.balance}>
-            <h2>{data[quizNum].title}</h2>
-            <button onClick={() => {addData(data[quizNum].answera);increaseQuizNum();if(quizNum === 12){showResults();}}}>{data[quizNum].answera}</button>
-            <button onClick={() => {addData(data[quizNum].answerb);increaseQuizNum();if(quizNum === 12){showResults();}}}>{data[quizNum].answerb}</button>
+            <div className={styles.computer}>
+              <div className={styles.icon}>
+                <img src='/img/quiz/icon01.png'/>
+                <img src='/img/quiz/icon02.png'/>
+                <img src='/img/quiz/icon03.png'/>
+              </div>
+              <h2>{data[quizNum].title}</h2>
+              <div className={styles.screen}>
+                <div className={styles.screen01}>
+                  <button onClick={() => {addData(data[quizNum].answera);increaseQuizNum();if(quizNum === 12){showResults();}}}>{data[quizNum].answera}</button>
+                </div>
+                <div className={styles.screen02}>
+                  <button onClick={() => {addData(data[quizNum].answerb);increaseQuizNum();if(quizNum === 12){showResults();}}}>{data[quizNum].answerb}</button>
+                </div>
+              </div>
+            </div>
+            <div className={styles.vase}>
+              <img className={styles.rstem} src='/img/quiz/rightStem.png'/>
+              <img className={styles.lstem} src='/img/quiz/leftStem.png'/>
+              <img className={styles.fvase} src='/img/quiz/vase.png'/>
+              <img className={styles.rflower} src='/img/quiz/rightFlower.png'/>
+              <img className={styles.lflower} src='/img/quiz/leftFlower.png'/>
+            </div> 
+            <div className={styles.candle}>
+              <img src='/img/quiz/candlelight.png'/>
+            </div>
+            <div className={styles.post}>
+              <h2>MY CHOICE</h2>
+              {
+                collect.map((item,key) => (
+                  <p key={key}>{item}</p>
+                ))
+              }
+            </div>
           </section>
         </div>
       </div>
