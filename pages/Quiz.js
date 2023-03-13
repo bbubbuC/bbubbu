@@ -1,19 +1,60 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '@/styles/quiz.module.scss'
+import Link from 'next/link';
 
 const Quiz = () => {
   const [bg,setBg]=useState(true);
   const [collect,setCollect]=useState([]);
+  const [quizNum,setQuizNum]=useState(0);
+  const [showIntro, setShowIntro] = useState(true);
   const data = require('public/data/data.json')
 
-  console.log(data[0].title);
-function addData(e) {
-  console.log(e.target.id)
-  setCollect(enter => [...enter, e.target.id])
-
+//버튼 값 담아두기
+function addData(text) {
+  setCollect(enter => [...enter, text])
 }
-console.log(collect)
 
+//버튼클릭시 1씩증가
+function increaseQuizNum() {
+  setQuizNum(prevNum => prevNum + 1);
+}
+
+//마지막 선택한 값 보여주기
+function showResults() {
+  setBg(true);
+}
+
+//인트로 화면 보여주기
+useEffect(() => {
+  setTimeout(() => {
+    setShowIntro(false);
+  }, 1500);
+}, []);
+
+if (showIntro) {
+  return (
+    <div className={styles.intro}>
+      <img src='/img/quiz/quizIntro.png' />
+    </div>
+  );
+}
+
+if (quizNum === 13) {
+  return (
+    <div className={styles.result}>
+      <div className={styles.resultContainer}>
+        <p>나의 취향은:</p>
+        {
+          collect.map((item, key) => (
+          <p key={key}>{item}</p>))
+        }
+        <Link href="/Mypage">
+            <img src='/img/quiz/rocket.png' />
+          </Link>
+      </div>
+    </div>
+  );
+}
   return (
     <main className={styles.main}>
       <div className={styles.back}>
@@ -28,13 +69,12 @@ console.log(collect)
             </div>
           </section>
           <section className={styles.balance}>
-            <h2>{data[quizNumber].title}</h2>
-            <button onClick={}>{data[quizNumber].answera}</button>
-            <button onClick={}>{data[quizNumber].answerb}</button>
+            <h2>{data[quizNum].title}</h2>
+            <button onClick={() => {addData(data[quizNum].answera);increaseQuizNum();if(quizNum === 12){showResults();}}}>{data[quizNum].answera}</button>
+            <button onClick={() => {addData(data[quizNum].answerb);increaseQuizNum();if(quizNum === 12){showResults();}}}>{data[quizNum].answerb}</button>
           </section>
         </div>
       </div>
-      <div className={styles.bottom}></div>
     </main>
   )
 }
