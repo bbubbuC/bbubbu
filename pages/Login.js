@@ -27,7 +27,7 @@ export default function Login(props) {
             setFormStatus(`로긘 성공!`);
             router.replace("/");
         } else {
-            setFormStatus(`Error Occured : ${result.error}`);
+            setFormStatus(result.error);
         }
     } // end of submitHandler function
 

@@ -110,7 +110,7 @@
                 justify-content: space-between
             }
 
-            button {
+            input {
                 width: 222px;
                 height: 48px;
                 background-color: white;
@@ -169,6 +169,10 @@
                     background-color: white;
                 }
             }
+
+            .ddaycont.active {
+                visibility: hidden;
+            }
         }
 
         .profile {
@@ -176,32 +180,34 @@
 
             .proCont {
                 display: flex;
-                align-items: center;
+                gap: 14px;
                 justify-content: space-between;
-                margin-top: 20px;
-
-                img {
-                    border: 1px solid;
-                }
 
                 .left {
                     img {
-                        width: 150px;
-                        height: 150px;
+                        width: 120px;
+                        height: 120px;
+                        border: 3px solid;
+                        border-radius: 60px;
                     }
                 }
 
                 .right {
                     display: flex;
-                    gap: 16px;
+                    align-items: center;
+                    gap: 20px;
 
-                    div {
-                        img {
-                            width: 60px;
-                            height: 60px;
-                        }
+                    img {
+                        width: 60px;
+                        height: 60px;
+                        border: 3px solid;
+                        border-radius: 30px;
                     }
                 }
+            }
+
+            .proCont.active {
+                display: none;
             }
         }
     }

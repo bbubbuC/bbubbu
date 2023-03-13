@@ -20,12 +20,12 @@ export default NextAuth({
                         name: String(credentials.name),
                     },
                     select: {
-                        name: true, email: true, password: true
+                        name: true, password: true
                     },
                 });
 
                 if (!user) {
-                    throw new Error('아이디가  틀림!!');
+                    throw new Error('아이디가  틀렸습니다.');
                 }
 
                 const isValid = await verifyPassword(
@@ -34,9 +34,10 @@ export default NextAuth({
                 );
 
                 if (!isValid) {
-                    throw new Error('비밀번호 틀림!');
+                    throw new Error('비밀번호가 틀렸습니다.');
                 }
-                return { name: user.name, email: user.email };
+                return { name: user.name };
+                //, email: user.email
             }
         })
     ],
@@ -49,10 +50,9 @@ export default NextAuth({
             const login = await prisma.users.findUnique({
                 //어디 ? email === session안에 user안에 email
                 where: {
-                    email: session.user.email
+                    name: session.user.name
                 },
                 select: {
-                    email: true,
                     name: true,
                     nickname: true,
                 }
