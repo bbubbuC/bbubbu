@@ -94,7 +94,9 @@ const Write = () => {
                     <div className={styles.sidebarI}>
 
 
+
                     <Image src="/img/community/icon06.png" alt='' width={60} height={60}/>
+
 
                     </div>
                 </div>

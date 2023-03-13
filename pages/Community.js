@@ -79,8 +79,10 @@ const Community = () => {
           </Link>
           <div className={styles.sidebarI}>
 
+
             {/* <Image src={images[currentImage]} alt='' width={60} height={60}/> */}
             <Image src="/img/community/icon06.png" alt='' width={60} height={60}/>
+
 
           </div>
         </div>
