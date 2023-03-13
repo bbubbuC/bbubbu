@@ -107,6 +107,9 @@ const CheckList = () => {
           <button onClick={()=>{note.current.style="background:#FFFFFF"}}></button>
         </div>
 
+        <div className={styles.bbubbubbu}>
+          <Image src="/img/main/bbus.png" alt='' width={120} height={180}/>
+        </div>
       </section>
 
       <div className={styles.line}>
