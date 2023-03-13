@@ -6,7 +6,7 @@ import Groom from './component/community/Groom'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const community = () => {
+const Community = () => {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
@@ -44,7 +44,7 @@ const community = () => {
       <article className={styles.container}>
         <div className={styles.category}>
           <div
-            className={selectedCategory === 'ALL' ? styles.selected : ''}
+            className={selectedCategory === 'ALL' ? styles.selected : ''} 
             onClick={() => handleClick('ALL')}
           >
             ALL
@@ -63,18 +63,27 @@ const community = () => {
           </div>
         </div>
 
-        <List/>
-
-        <Bride/>
-
-        <Groom/>
+        <div className={selectedCategory === 'ALL' ? styles.block : styles.none}> 
+          <List/>
+        </div>
+        <div className={selectedCategory === '신부방' ? styles.block : styles.none}> 
+          <Bride/>
+        </div>
+        <div className={selectedCategory === '신랑방' ? styles.block: styles.none}>
+          <Groom/>
+        </div>
       
         <div className={styles.sidebar}> 
           <Link href='/Write'>
               <button className={styles.slide}>글 작성하기</button>
           </Link>
           <div className={styles.sidebarI}>
+
+
             {/* <Image src={images[currentImage]} alt='' width={60} height={60}/> */}
+            <Image src="/img/community/icon06.png" alt='' width={60} height={60}/>
+
+
           </div>
         </div>
       </article>
@@ -83,4 +92,4 @@ const community = () => {
   )
 }
 
-export default community
+export default Community

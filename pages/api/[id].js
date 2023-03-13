@@ -3,7 +3,6 @@ import { executeQuery } from './db';
 const handler = async (req, res) => {
 
   const { method, body, query } = req;
-  
 
   //insert
   const seletDataId = async () => {

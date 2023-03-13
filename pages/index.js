@@ -3,13 +3,16 @@ import styles from '@/styles/main.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import Weather from './Weather'
+import { useSession } from 'next-auth/react'
 
 //const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { data: session } = useSession();
+  console.log(session)
   return (
     <>
-    {/* test */}
+      {/* test */}
       <main className={styles.main}>
         <section className={styles.iconBox}>
           <div className={styles.icon02}></div>
@@ -32,7 +35,7 @@ export default function Home() {
             <div className={styles.checkList}></div>
           </Link>
           <Link href="/Invitation">
-            <div className={styles.invitation}></div> 
+            <div className={styles.invitation}></div>
           </Link>
           <Link href="/Quiz">
             <div className={styles.quiz}></div>

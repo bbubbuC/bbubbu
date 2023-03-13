@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from '@/styles/edit.module.scss';
 
 const Edit = () => {
+
     let mainImg=useRef();
     let inputWedding=useRef();
     let [Wed,setWed]=useState(false);
@@ -28,8 +29,8 @@ const Edit = () => {
         }else{
             setStyleName(false) 
         }
-    }
-    return(
+
+    return (
         <main className={styles.main}>
             <h2 className={styles.title}>EDIT</h2>
             <div className={styles.container}>

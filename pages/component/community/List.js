@@ -7,7 +7,6 @@ import { DbContext } from '../MyContext';
 
 const List = () => {
     const { data, dataFun } = useContext(DbContext);
-    console.log(data);
     const router = useRouter();
 
     function dataget() {

@@ -4,12 +4,11 @@ import { executeQuery } from './db';
 const handler = async (req, res) => {
   // DESC(내림차순), ASC(오름차순)
   const { method, body } = req;
-  console.log(body);
 
   const seletData = async () => {
     try {
       let data = await executeQuery('select * from community order by id DESC', []);
-      res.json(data)
+      res.json(data);
     } catch (err) {
       res.send(err);
     }
