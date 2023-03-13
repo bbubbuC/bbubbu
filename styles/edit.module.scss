@@ -89,7 +89,7 @@ main.main{
                     input[type=radio]{
                         display: none;
                         &:checked+label{
-                            background-color: #79A5FF;
+                            background-color: #F7D2FF;
                         }
                     }
                     input[type=radio]+label{
@@ -129,7 +129,7 @@ main.main{
                     input[type=checkbox]{
                         display: none;
                         &:checked+label{
-                            background-color: #79A5FF;
+                            background-color: #FF9C40;
                         }
                     }
                     input[type=checkbox]+label{
@@ -195,7 +195,7 @@ main.main{
                     font-size: 30px;
                     font-weight: 700;
                     line-height: 80px;
-                    &:active{
+                    &:hover{
                         top:12px
                     }
                 }
