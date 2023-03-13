@@ -2,10 +2,10 @@ import React from "react";
 import styles from '@/styles/edit.module.scss';
 
 const Edit = () => {
-    function create(e) { 
+    function create(e) {
         // e.preventDefault(e);
     }
-    return(
+    return (
         <main className={styles.main}>
             <h2 className={styles.title}>EDIT</h2>
             <div className={styles.container}>
