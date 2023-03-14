@@ -1,11 +1,9 @@
 
-import Link from 'next/link';
 import Image from 'next/image'
 import styles from '@/styles/community.module.scss'
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import { DbContext } from '../MyContext';
-
 
 const List = () => {
     const { data, dataFun } = useContext(DbContext);
@@ -13,6 +11,7 @@ const List = () => {
     const [like, setLike] = useState(true);
     const [commentBox, setCommentBox] = useState(false)
 
+    // console.log(data);
     function dataget() {
         dataFun('get')
     }
@@ -33,17 +32,12 @@ const List = () => {
                 <section>
                     {
                         data && data.map(obj => (
-                            // <li key={obj.id}>
-                            //     {obj.nickname} / {obj.date} / {obj.text}
-                            //     <button onClick={() => router.push({ pathname: '/Update', query: obj })}>수정</button>
-                            //     <button onClick={() => dataDelete(obj.id)}>삭제</button>
-                            // </li>
                             <div key={obj.id} className={styles.listBox}>
                                 <div className={styles.top}>
                                     <div className={styles.profile}>
                                         <Image src="/img/signup/2.png" alt='' width={40} height={40}/>
                                         <div className={styles.nickname}>
-                                            <b>{obj.nickname}</b>
+                                            <b>ndaskdnkad</b>
                                             <p>{obj.date}</p>  
                                         </div>
                                     </div>
@@ -58,6 +52,7 @@ const List = () => {
                                 </div>
     
                                 <div className={styles.middle}>
+                                    <h4>{obj.nickname}</h4>
                                     <p>{obj.text}</p>
                                 </div>
                                 <div className={styles.bottom}>

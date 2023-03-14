@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { signOut, useSession } from 'next-auth/react';
 
+
 const Header = () => {
 
     const { data: session, status } = useSession();

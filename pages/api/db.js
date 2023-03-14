@@ -3,7 +3,7 @@ const { createPool } = require("mysql");
 const pool = createPool({
     host: "svc.sel3.cloudtype.app",
     user: "root",
-    password: "0422",
+    password: "0412",
     port: "30108",
     database: "bbubbu"
 })

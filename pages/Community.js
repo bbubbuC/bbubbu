@@ -8,27 +8,11 @@ import Image from 'next/image'
 
 const Community = () => {
 
-  const [currentImage, setCurrentImage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
-
-  const images = [
-    '/img/community/icon06.png',
-    '/img/community/icon11.png',
-    '/img/community/icon12.png',
-    '/img/community/icon13.png',
-    '/img/community/icon14.png'
-  ];
 
   const handleClick = (category) => {
     setSelectedCategory(category);
   };
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentImage(currentImage => (currentImage + 1) % images.length)
-  //   }, 1200)
-  //   return () => clearInterval(interval)
-  // }, [])
 
   return (
     <>
@@ -78,12 +62,7 @@ const Community = () => {
               <button className={styles.slide}>글 작성하기</button>
           </Link>
           <div className={styles.sidebarI}>
-
-
-            {/* <Image src={images[currentImage]} alt='' width={60} height={60}/> */}
-            <Image src="/img/community/icon06.png" alt='' width={60} height={60}/>
-
-
+            <Image src="/img/community/iiiii.gif" alt='' width={55} height={55}/>
           </div>
         </div>
       </article>
