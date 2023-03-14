@@ -15,6 +15,9 @@ const MyContext = ({ children }) => {
     console.log(session)
 
 
+    const session = useSession();
+
+    console.log('ddfdf', session)
     async function userData(type, obj) {
         console.log(type, obj)
         if (type == 'get') {

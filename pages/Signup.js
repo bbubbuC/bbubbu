@@ -64,6 +64,7 @@ export default function Signup(props) {
     const BmainImg = useRef();
 
     const { status } = useSession();
+    console.log(status)
     const router = useRouter();
 
     async function submitHandler(e) {
@@ -111,16 +112,16 @@ export default function Signup(props) {
     async function IDchack() {
         let target = nameInputRef.current.value;
         await axios.get('/api/auth/signup', {
-          params: {
-            id: target
-          }
+            params: {
+                id: target
+            }
         }).then((aa) => {
-          setIdchack(aa.data.message)
+            setIdchack(aa.data.message)
         })
         if (target == '') {
-          setIdchack('아이디를 입력해주세요')
+            setIdchack('아이디를 입력해주세요')
         }
-      
+
     }
 
 
