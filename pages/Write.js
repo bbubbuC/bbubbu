@@ -7,7 +7,6 @@ import Image from 'next/image'
 
 const Write = () => {
     const {dataFun} = useContext(DbContext);
-    const [currentImage, setCurrentImage] = useState(0);
     const router = useRouter();
 
     const sampleTimestamp = Date.now();
@@ -28,27 +27,12 @@ const Write = () => {
         router.push('/Community');
     }
 
-    const images = [
-        '/img/community/icon06.png',
-        '/img/community/icon11.png',
-        '/img/community/icon12.png',
-        '/img/community/icon13.png',
-        '/img/community/icon14.png'
-    ];
- 
     const valueChange = (e) => {
         let t = e.target;
         setValue((obj) => {
             return { ...obj, [t.name]: t.value }
         })
     }
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentImage(currentImage => (currentImage + 1) % images.length)
-    //     }, 1200)
-    //     return () => clearInterval(interval)
-    // }, [])
 
     return (
         <>
@@ -92,12 +76,7 @@ const Write = () => {
                         돌아가기
                     </button>
                     <div className={styles.sidebarI}>
-
-
-
-                    <Image src="/img/community/icon06.png" alt='' width={60} height={60}/>
-
-
+                        <Image src="/img/community/iiiii.gif" alt='' width={55} height={55}/>
                     </div>
                 </div>
 
