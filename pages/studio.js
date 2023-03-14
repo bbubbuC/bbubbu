@@ -82,7 +82,7 @@ function studio() {
 
                 <Swiper
                     slidesPerView={"auto"}
-                    spaceBetween={40}
+                    spaceBetween={50}
                     autoplay={{
                         delay: 5000,
                         disableOnInteraction: false,
@@ -105,6 +105,10 @@ function studio() {
                     })}
                 </Swiper>
             </div>
+
+
+
+            {/* 영상 */}
             <div className={styles.videoPlayer}>
                 <div className={styles.videoPlayerLogo}>
                     <Image src="/img/SDM/Group 90.png" width={30} height={30} alt='' ></Image>

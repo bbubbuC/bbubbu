@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
 import { PrismaClient } from '@prisma/client';
+import { useSession } from 'next-auth/react';
 export const DbContext = createContext(null);
 
 const MyContext = ({ children }) => {
@@ -12,6 +13,9 @@ const MyContext = ({ children }) => {
     const [users, setUsers] = useState();
 
 
+    const session = useSession();
+
+    console.log('ddfdf', session)
     async function userData(type, obj) {
         console.log(type, obj)
         if (type == 'get') {

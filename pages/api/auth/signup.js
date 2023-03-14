@@ -109,7 +109,7 @@ async function handler(req, res) {
             else {
                 res.json({ message: '사용 가능한 아이디 입니다.' })
             }
-            
+
         }
         catch (err) {
             res.send(err);
@@ -124,7 +124,7 @@ async function handler(req, res) {
     //         res.send(err)
     //     }
     // }
-      
+
 }
 
 
