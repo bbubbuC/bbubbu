@@ -10,7 +10,7 @@ const List = () => {
     const router = useRouter();
     const [commentBox, setCommentBox] = useState(false)
 
-    console.log(like)
+    console.log(data)
     function dataget() {
         dataFun('get');
         likeFun('get');

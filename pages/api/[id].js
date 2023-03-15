@@ -22,7 +22,7 @@ const handler = async (req, res) => {
         console.log('body:', body);
         let { title, text, date, likeB } = body;
         let data = await executeQuery(
-         'update community set nickname=?, text=?, likeB=? where id=?',
+         'update community set title=?, text=?, likeB=? where id=?',
           [ title, text,likeB,Number(query.id)] 
         )
         console.log(Number(query.id))
