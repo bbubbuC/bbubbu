@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from '@/styles/quiz.module.scss'
 import Link from 'next/link';
+import { DbContext } from './component/MyContext';
+import { useRouter } from 'next/router';
 
 const Quiz = () => {
+  const {userInfo, quizDataFun, quizData} = useContext(DbContext);
   const [bg,setBg]=useState(true);
   const [collect,setCollect]=useState([]);
   const [quizNum,setQuizNum]=useState(0);
   const [showIntro, setShowIntro] = useState(true);
   const data = require('public/data/data.json')
-
-//버튼 값 담아두기
-function addData(text) {
-  setCollect(enter => [...enter, text])
-}
+  const router = useRouter();
+  // console.log(userInfo);
+  
+  //버튼 값 담아두기
+  function addData(text) {
+    
+    setCollect(enter => [...enter, text])
+  }
 
 //버튼클릭시 1씩증가
 function increaseQuizNum() {
@@ -21,7 +27,7 @@ function increaseQuizNum() {
 
 //마지막 선택한 값 보여주기
 function showResults() {
-  setBg(true);
+  setBg(false);
 }
 
 //인트로 화면 보여주기
@@ -30,6 +36,14 @@ useEffect(() => {
     setShowIntro(false);
   }, 1500);
 }, []);
+
+async function insert(collect){
+  console.log(collect)
+  const nick=userInfo.nickname;
+  const gen=userInfo.gender;
+  await quizDataFun('post',{nick, gen,collect});
+  router.push('/Mypage')
+}
 
 if (showIntro) {
   return (
@@ -42,7 +56,7 @@ if (showIntro) {
 
 if (quizNum === 13) {
   return (
-    <main className={styles.main}>
+    <main className={bg?`${styles.main} ${styles.noneResult}`:`${styles.main}`}>
       <div className={styles.result}>
         <div className={styles.computer}>
           <div className={styles.icon}>
@@ -50,11 +64,44 @@ if (quizNum === 13) {
             <img src='/img/quiz/icon02.png'/>
             <img src='/img/quiz/icon03.png'/>
           </div>
-          <div className={styles.resultContainer}>
-            <p>마이페이지로</p>
-            <Link href="/Mypage">
+          <div className={styles.resultContainer} onClick={() => setBg(true)}>
+            <p>내 결과 저장</p>
+           
               <img src='/img/quiz/screen.png' />
-            </Link>
+           
+        </div>
+        </div>
+        <div className={styles.vase}>
+          <img className={styles.rstem} src='/img/quiz/rightStem.png'/>
+          <img className={styles.lstem} src='/img/quiz/leftStem.png'/>
+          <img className={styles.fvase} src='/img/quiz/vase.png'/>
+          <img className={styles.rflower} src='/img/quiz/rightFlower.png'/>
+          <img className={styles.lflower} src='/img/quiz/leftFlower.png'/>
+        </div> 
+        <div className={styles.candle}>
+          <img src='/img/quiz/candlelight.png'/>
+        </div>
+        <div className={styles.post}>
+          <h2>MY CHOICE</h2>
+          {
+            collect.map((item,key) => (
+              <p key={key}>{item}</p>
+            ))
+          }
+        </div>
+      </div>
+      <div className={styles.last}>
+        <div className={styles.computer}>
+          <div className={styles.icon}>
+            <img src='/img/quiz/icon01.png'/>
+            <img src='/img/quiz/icon02.png'/>
+            <img src='/img/quiz/icon03.png'/>
+          </div>
+          <div className={styles.resultContainer} onClick={()=> insert(collect)}>
+            <p>마이페이지로</p>
+           
+              <img src='/img/quiz/screen.png' />
+           
         </div>
         </div>
         <div className={styles.vase}>
