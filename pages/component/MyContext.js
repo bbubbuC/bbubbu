@@ -8,6 +8,8 @@ const MyContext = ({ children }) => {
 
     const [data, setData] = useState();
     const [todoData, todoSetData] = useState();
+
+    const [quizData, setQuizData] = useState([]);
     const [users, setUsers] = useState([]);
     const [userInfo, setUserInfo] = useState();
     const [like, setLike] = useState([]);
@@ -15,7 +17,7 @@ const MyContext = ({ children }) => {
     const [d, setD] = useState();
     const [m, setM] = useState();
     const session = useSession();
-    // console.log(data)
+
 
     async function userData(type, obj) {
         // console.log(type, obj)
@@ -26,7 +28,7 @@ const MyContext = ({ children }) => {
             })
         }
     }
- 
+
     const userFun = async () =>{
         const filteredUsers = users.filter((obj)=>{
             return obj.nickname == session.data?.user.nickname
@@ -48,7 +50,7 @@ const MyContext = ({ children }) => {
             })})
         }else if (type == 'put') {
             await axios.put(`/api/${obj.id}`, obj).then((res) => {
-                console.log(res);
+                // console.log(res);
             })
             return dataFun('get');
         } else if (type === 'delete') {
@@ -101,33 +103,28 @@ const MyContext = ({ children }) => {
         todoSetData(trans);
     }
 
+    async function quizDataFun(type, obj) {
+        let trans;
+        if (type == 'get') {
+            await axios.get('/api/quiz').then(res => trans = res.data);
+        } else if (type == 'post') {
+            // console.log(obj)
+            await axios.post('/api/quiz', obj)
+            return quizDataFun('get');
+        } else if (type == 'put') {
+            await axios.put(`/api/quiz/${obj.id}`, obj).then((res) => {
+                // console.log(res);
+            })
+            return dataFun('get');
+        } else if (type === 'delete') {
+            await axios.delete(`/api/quiz/${obj}`)
+            return quizDataFun('get');
+        }
+        console.log(trans)
+        setQuizData(trans);
+    }
 
-    // async function sFun(type, obj) {
-    //     let trans;
-    //     if (type == 'get') {
-    //         await axios.get('/api/s').then(res => trans = res.data);
-    //     } 
-    //     // console.log(trans)
-    //     setS(trans);
-    // }
 
-    // async function dFun(type, obj) {
-    //     let trans;
-    //     if (type == 'get') {
-    //         await axios.get('/api/d').then(res => trans = res.data);
-    //     } 
-    //     // console.log(trans)
-    //     setD(trans);
-    // }
-
-    // async function mFun(type, obj) {
-    //     let trans;
-    //     if (type == 'get') {
-    //         await axios.get('/api/s').then(res => trans = res.data);
-    //     } 
-    //     // console.log(trans)
-    //     setM(trans);
-    // }
 
 
 
@@ -136,6 +133,7 @@ const MyContext = ({ children }) => {
         todoDataFun("get");
         userData('get');
         likeFun("get")
+        quizDataFun('get');
     }, [])
 
     useEffect(() => {
@@ -148,7 +146,9 @@ const MyContext = ({ children }) => {
 
 
     return (
-        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, userInfo, like, likeFun}}>
+
+        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, users,userInfo, quizDataFun, quizData , like, likeFun}}>
+
             {children}
         </DbContext.Provider>
     )
