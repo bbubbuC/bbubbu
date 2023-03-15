@@ -18,7 +18,7 @@ const MyContext = ({ children }) => {
     // console.log(data)
 
     async function userData(type, obj) {
-        console.log(type, obj)
+        // console.log(type, obj)
         if (type == 'get') {
             await axios.get('/api/auth/test', {
             }).then((aa) => {
