@@ -6,8 +6,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const Write = () => {
-    const {dataFun} = useContext(DbContext);
+    const {dataFun, userInfo} = useContext(DbContext);
     const router = useRouter();
+
+    console.log(userInfo);
 
     const sampleTimestamp = Date.now();
     const date = new Date(sampleTimestamp); 

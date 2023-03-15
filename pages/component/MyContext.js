@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
-import { PrismaClient } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 export const DbContext = createContext(null);
 
@@ -9,15 +8,13 @@ const MyContext = ({ children }) => {
 
     const [data, setData] = useState();
     const [todoData, todoSetData] = useState();
-
-    const [users, setUsers] = useState();
+    const [users, setUsers] = useState([]);
+    const [userInfo, setUserInfo] = useState();
+    const [s, setS] = useState();
+    const [d, setD] = useState();
+    const [m, setM] = useState();
     const session = useSession();
-    console.log(session)
-
-
-    const session = useSession();
-
-    console.log('ddfdf', session)
+    // console.log(userInfo)
     async function userData(type, obj) {
         console.log(type, obj)
         if (type == 'get') {
@@ -27,10 +24,19 @@ const MyContext = ({ children }) => {
             })
         }
     }
-    console.log("aaa", users)
+ 
+    const userFun = async () =>{
+        const filteredUsers = users.filter((obj)=>{
+            return obj.nickname == session.data?.user.nickname
+        })
+        if (filteredUsers.length > 0) {
+            const userInfo = filteredUsers[0]
+            setUserInfo(userInfo)
+        }
+    }
 
-
-
+    // console.log(userInfo)
+    
     async function dataFun(type, obj) {
         let trans;
         if (type == 'get') {
@@ -70,11 +76,45 @@ const MyContext = ({ children }) => {
         todoSetData(trans);
     }
 
+
+    async function sFun(type, obj) {
+        let trans;
+        if (type == 'get') {
+            await axios.get('/api/s').then(res => trans = res.data);
+        } 
+        // console.log(trans)
+        setS(trans);
+    }
+
+    async function dFun(type, obj) {
+        let trans;
+        if (type == 'get') {
+            await axios.get('/api/d').then(res => trans = res.data);
+        } 
+        // console.log(trans)
+        setD(trans);
+    }
+
+    async function mFun(type, obj) {
+        let trans;
+        if (type == 'get') {
+            await axios.get('/api/s').then(res => trans = res.data);
+        } 
+        // console.log(trans)
+        setM(trans);
+    }
+
+
+
     useEffect(() => {
         dataFun('get');
         todoDataFun("get");
         userData('get');
     }, [])
+
+    useEffect(() => {
+        userFun()
+    }, [users, session])
 
 
 
@@ -82,7 +122,7 @@ const MyContext = ({ children }) => {
 
 
     return (
-        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, users }}>
+        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, userInfo}}>
             {children}
         </DbContext.Provider>
     )

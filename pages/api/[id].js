@@ -19,16 +19,37 @@ const handler = async (req, res) => {
   //업데이트
   const updateDataId = async () => {
     try{
-        let { nickname, text, date } = body;
+        console.log('body:', body);
+        let { nickname, text, date, likeB } = body;
         let data = await executeQuery(
-          'update community set nickname=?,text=? where id=?',
-          [nickname, text, Number(query.id)]
+         'update community set nickname=?, text=?, likeB=? where id=?',
+          [ nickname, text,likeB,Number(query.id)] 
+          // "select * from community"
         )
+        console.log(Number(query.id))
         res.json(data)
     }catch(err){
         res.send(err);
     }
   }
+
+    // //업데이트
+    // const updateDataId = async () => {
+    //   try{
+    //       console.log('body:', body);
+    //       let { icon1 } = body;
+    //       let data = await executeQuery(
+    //         'update community set icon1=?, where id=?',
+    //         [icon1, Number(query.id)]
+    //       )
+    //       console.log(Number(query.id))
+    //       res.json(data)
+    //   }catch(err){
+    //       res.send(err);
+    //   }
+    // }
+
+
   //삭제
   const deleteData = async () => {
     let data = await executeQuery(

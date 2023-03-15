@@ -15,11 +15,11 @@ const handler = async (req, res) => {
   }
 
   const insertData = async () => {
-    let { nickname, text, date} = body;
+    let {profile, nickname, title, text, date} = body;
 
     let data = await executeQuery(
-      'insert into community (nickname,text,date) value (?,?,?)',
-      [nickname, text, date]
+      'insert into community (profile, nickname, title, text, date) value (?,?,?,?,?)',
+      [profile, nickname, title, text, date]
     );
     res.json(data)
   }
@@ -31,3 +31,14 @@ const handler = async (req, res) => {
 }
 
 export default handler;
+
+
+// 테이블 연결시키기
+// const seletData = async () => {
+//   try {
+//     let data = await executeQuery('SELECT * FROM community LEFT JOIN todo ON community.id = todo.community_id ORDER BY community.id DESC', []);
+//     res.json(data);
+//   } catch (err) {
+//     res.send(err);
+//   }
+// }
