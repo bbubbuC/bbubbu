@@ -6,14 +6,14 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { DbContext } from '../MyContext';
 
 const List = () => {
-    const { data, dataFun } = useContext(DbContext);
+    const { data, dataFun, like, likeFun } = useContext(DbContext);
     const router = useRouter();
-    const [like, setLike] = useState(0);
     const [commentBox, setCommentBox] = useState(false)
 
-    console.log(data);
+    console.log(like)
     function dataget() {
-        dataFun('get')
+        dataFun('get');
+        likeFun('get');
     }
 
     function dataDelete(id) {

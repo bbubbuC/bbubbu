@@ -16,13 +16,36 @@ const handler = async (req, res) => {
 
   const insertData = async () => {
     let {profile, nickname, title, text, date} = body;
-
     let data = await executeQuery(
-      'insert into community (profile, nickname, title, text, date) value (?,?,?,?,?)',
+      'insert into community (profile, nickname, title, text, date) value (?, ?, ?, ?, ?)',
       [profile, nickname, title, text, date]
     );
+    // console.log(id)
     res.json(data)
   }
+
+
+
+
+  // // Community 테이블에 INSERT 문 실행
+  // const communityInsertResult = await executeQuery(
+  //   'INSERT INTO community (profile, nickname, title, text, date) VALUES (?, ?, ?, ?, ?)',
+  //   [profile, nickname, title, text, date]
+  // );
+
+  // // 자동으로 생성된 ID 값을 변수에 할당
+  // const communityId = communityInsertResult.insertId;
+
+  // // Like 테이블에 INSERT 문 실행
+  // const likeInsertResult = await executeQuery(
+  //   'INSERT INTO like (community_id, user_id, date) VALUES (?, ?, ?)',
+  //   [communityId, userId, date]
+  // );
+
+
+
+
+
                                                                   
   switch (method) {
     case "GET": seletData(); break;
