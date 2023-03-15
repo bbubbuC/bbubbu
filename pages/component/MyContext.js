@@ -12,14 +12,12 @@ const MyContext = ({ children }) => {
 
     const [users, setUsers] = useState();
     const session = useSession();
-    console.log(session)
+    // console.log(session)
 
-
-    const session = useSession();
 
     console.log('ddfdf', session)
     async function userData(type, obj) {
-        console.log(type, obj)
+        // console.log(type, obj)
         if (type == 'get') {
             await axios.get('/api/auth/test', {
             }).then((aa) => {

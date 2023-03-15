@@ -12,12 +12,12 @@ export default function Home() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(()=>{
-    if (status !== "authenticated") {
-      router.push('/Login');
-      // return null; // 컴포넌트를 렌더링하지 않음
-    }
-  },[])
+  // useEffect(()=>{
+  //   if (status !== "authenticated") {
+  //     router.push('/Login');
+  //     // return null; // 컴포넌트를 렌더링하지 않음
+  //   }
+  // },[])
 
   return (
     <>

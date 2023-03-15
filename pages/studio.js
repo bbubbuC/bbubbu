@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -14,6 +14,8 @@ import { Autoplay, Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import StudioCom from './component/StudioCom';
+
 
 
 function studio() {
@@ -21,47 +23,58 @@ function studio() {
     const studioList = [
         {
             id: 1,
-            studioName: "#구호스튜디오",
+            studioName: "구호스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/구호스튜디오/1.jpg"
+            url: "/img/SDM/studio/구호스튜디오/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
         {
             id: 2,
-            studioName: "#그날의기억",
+            studioName: "그날의기억",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/그날의기억/1.jpg"
+            url: "/img/SDM/studio/그날의기억/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
         {
             id: 3,
-            studioName: "#달빛스쿠터",
+            studioName: "달빛스쿠터",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg"
+            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
         {
             id: 4,
-            studioName: "#더브라이드 스튜디오",
+            studioName: "더브라이드 스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/더브라이드 스튜디오/1.jpg"
+            url: "/img/SDM/studio/더브라이드 스튜디오/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
         {
             id: 5,
-            studioName: "#더청담스튜디오",
+            studioName: "더청담스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg"
+            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
         {
             id: 6,
-            studioName: "#더청담스튜디오",
+            studioName: "더청담스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg"
+            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
         {
             id: 7,
-            studioName: "#더청담스튜디오",
+            studioName: "더청담스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg"
+            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
+            src: "http://www.kuhostudio.co.kr/"
         },
     ]
+
+
+
+
 
 
     return (
@@ -79,43 +92,33 @@ function studio() {
                     <p>추천 스튜디오</p>
                 </div>
 
-
                 <Swiper
                     slidesPerView={"auto"}
                     spaceBetween={50}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    // pagination={{
-                    //     clickable: true,
-                    // }}
-                    // navigation={true}
+                    // autoplay={{ delay: 1500, disableOnInteraction: false }}
                     modules={[Autoplay, Pagination, Navigation]}
                     className={styles.cont}
+                    
                 >
                     {studioList.map((v, k) => {
                         return (
-                            <SwiperSlide key={k} className={styles.SwiperSlide}>
-                                <Image src={v.url} width={390} height={270} alt=''></Image>
-                                <p>{v.studioName}   #영업시간: {v.time}</p>
-
+                            <SwiperSlide className={styles.SwiperSlide}>
+                                <StudioCom value={v} key={k}></StudioCom>
                             </SwiperSlide>
                         )
                     })}
-                </Swiper>
-            </div>
+                </Swiper >
 
-
+            </div >
 
             {/* 영상 */}
-            <div className={styles.videoPlayer}>
+            <div div className={styles.videoPlayer} >
                 <div className={styles.videoPlayerLogo}>
                     <Image src="/img/SDM/Group 90.png" width={30} height={30} alt='' ></Image>
                     <p>관련 영상</p>
                 </div>
 
-                <div className={styles.player}>
+                {/* <div className={styles.player}>
                     <div id='player' >
                         <YouTube
                             // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
@@ -173,7 +176,7 @@ function studio() {
                             onEnd={(e) => { e.target.stopVideo(0); }}
                         />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div >
     )
