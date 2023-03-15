@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 
 const Layout = ({ children }) => {
-      const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   // useEffect(()=>{

@@ -224,6 +224,10 @@ div.listBox{
         background-color: #c6dcc92e;
         .profile{
             display: flex;
+            img{
+                width: 40px;
+                height: 40px;
+            }
             .nickname{
                 display: flex;
                 flex-direction: column;
@@ -335,6 +339,10 @@ div.listBox{
         .profileCC{
             display: flex;
             align-items: center;
+            img{
+                width: 28px;
+                height: 28px;
+            }
             p{
                 font-weight: bold;
                 font-size: 15px;

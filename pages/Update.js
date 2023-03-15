@@ -11,7 +11,8 @@ const Update = () => {
     const { query } = router;
 
 
-    let initial = { id: query.id, nickname: query.nickname, text: query.text}
+    let initial = { id: query.id, nickname: query.nickname, text: query.text }
+    let likeB = {likeB: query.likeB}
     const [inputValue, setValue] = useState(initial);
 
     function valueChange(e) {
@@ -22,7 +23,7 @@ const Update = () => {
     }
     function create(e) {
         e.preventDefault()
-        dataFun('put',{...inputValue })
+        dataFun('put',{likeB,...inputValue })
         router.push('/Community');
     }
 

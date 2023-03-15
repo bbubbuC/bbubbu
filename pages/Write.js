@@ -6,9 +6,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const Write = () => {
-    const {dataFun} = useContext(DbContext);
+    const {dataFun, userInfo} = useContext(DbContext);
     const router = useRouter();
 
+    console.log(userInfo);
+
+    const userProfile = userInfo.gender === "신부" ? userInfo.gprofile : userInfo.bprofile;
     const sampleTimestamp = Date.now();
     const date = new Date(sampleTimestamp); 
     const year = date.getFullYear().toString().slice(-2);
@@ -18,12 +21,12 @@ const Write = () => {
     const minute = ("0" + date.getMinutes()).slice(-2); 
     const returnDate = year + "-" + month + "-" + day + " " + hour + ":" + minute;
 
-    const initial = { nickname: '', text: '', date: returnDate };
+    const initial = { title: '', text: '', date: returnDate };
     const [inputValue, setValue] = useState(initial);
 
     const create =(e) => {
          e.preventDefault();
-        dataFun('post',{...inputValue})
+        dataFun('post',{ profile:userProfile, nickname:userInfo.nickname, ...inputValue });
         router.push('/Community');
     }
 
@@ -52,7 +55,7 @@ const Write = () => {
                         onChange={valueChange} 
                         type="text" 
                         placeholder='제목을 입력해주세요' 
-                        name="nickname" 
+                        name="title" 
                     />
                     <textarea 
                         className={styles.text}
