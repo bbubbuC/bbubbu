@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
-import { PrismaClient } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 export const DbContext = createContext(null);
 
@@ -9,11 +8,16 @@ const MyContext = ({ children }) => {
 
     const [data, setData] = useState();
     const [todoData, todoSetData] = useState();
+
     const [quizData, setQuizData] = useState([]);
     const [users, setUsers] = useState([]);
-    const [userInfo,setUserInfo] = useState();
+    const [userInfo, setUserInfo] = useState();
+    const [like, setLike] = useState([]);
+    const [s, setS] = useState();
+    const [d, setD] = useState();
+    const [m, setM] = useState();
     const session = useSession();
-    const userName = session.data?.user.nickname;
+
 
     async function userData(type, obj) {
         // console.log(type, obj)
@@ -40,9 +44,11 @@ const MyContext = ({ children }) => {
         if (type == 'get') {
             await axios.get('/api').then(res => trans = res.data)
         } else if (type == 'post') {
-            await axios.post('/api', obj)
-            return dataFun('get');
-        } else if (type == 'put') {
+            await axios.post('/api', obj).then((res) => {
+                axios.post('/api/bbu', {communityId: res.data.insertId, user: userInfo.nickname, likeB: 0}).then((res) => {
+                return dataFun('get');
+            })})
+        }else if (type == 'put') {
             await axios.put(`/api/${obj.id}`, obj).then((res) => {
                 // console.log(res);
             })
@@ -53,6 +59,29 @@ const MyContext = ({ children }) => {
         }
         setData(trans);
     }
+
+    async function likeFun(type, obj) {
+        let trans;
+        if (type == 'get') {
+            await axios.get('/api/bbu').then(res => trans = res.data)
+        } 
+        // else if (type == 'post') {
+        //     await axios.post('/api', obj).then((res) => {
+        //         axios.post('/api/bbu', {communityId: res.data.insertId, user: userInfo.nickname, likeB: 0}).then((res) => {
+        //         return dataFun('get');
+        //     })})
+        // }else if (type == 'put') {
+        //     await axios.put(`/api/${obj.id}`, obj).then((res) => {
+        //         console.log(res);
+        //     })
+        //     return dataFun('get');
+        // } else if (type === 'delete') {
+        //     await axios.delete(`/api/${obj}`)
+        //     return dataFun('get');
+        // }
+        setLike(trans);
+    }
+
 
     async function todoDataFun(type, obj) {
         let trans;
@@ -97,23 +126,29 @@ const MyContext = ({ children }) => {
 
 
 
+
+
     useEffect(() => {
         dataFun('get');
         todoDataFun("get");
         userData('get');
+        likeFun("get")
         quizDataFun('get');
     }, [])
 
     useEffect(() => {
-        userFun()
+        userFun();
     }, [users, session])
 
 
 
 
 
+
     return (
-        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, users,userInfo, quizDataFun, quizData }}>
+
+        <DbContext.Provider value={{ data, dataFun, todoData, todoDataFun, users,userInfo, quizDataFun, quizData , like, likeFun}}>
+
             {children}
         </DbContext.Provider>
     )
