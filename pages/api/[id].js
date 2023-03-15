@@ -20,10 +20,10 @@ const handler = async (req, res) => {
   const updateDataId = async () => {
     try{
         console.log('body:', body);
-        let { nickname, text, date, likeB } = body;
+        let { title, text, date, likeB } = body;
         let data = await executeQuery(
          'update community set nickname=?, text=?, likeB=? where id=?',
-          [ nickname, text,likeB,Number(query.id)] 
+          [ title, text,likeB,Number(query.id)] 
         )
         console.log(Number(query.id))
         res.json(data)
