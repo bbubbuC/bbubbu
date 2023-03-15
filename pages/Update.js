@@ -11,7 +11,7 @@ const Update = () => {
     const { query } = router;
 
 
-    let initial = { id: query.id, nickname: query.nickname, text: query.text }
+    let initial = { id: query.id, title: query.title, text: query.text }
     let likeB = {likeB: query.likeB}
     const [inputValue, setValue] = useState(initial);
 
@@ -43,10 +43,10 @@ const Update = () => {
                 <form onSubmit={create}>
                     <input 
                         className={styles.title}
-                        value={inputValue.nickname} 
+                        value={inputValue.title} 
                         onChange={valueChange} 
                         type="text" 
-                        name="nickname" 
+                        name="title" 
                     />
                     <textarea 
                         className={styles.text}
