@@ -90,7 +90,7 @@ const Edit = () => {
             </div>
         </main>
     )
-
+    }
 }
 
 export default Edit
