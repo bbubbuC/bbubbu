@@ -14,51 +14,55 @@ const Quiz = () => {
   const router = useRouter();
 
   //하트
-  const easeOutQuart = "cubic-bezier(0.165, 0.84, 0.44, 1)";
-  const randomNumberInRange = (min, max) => Math.random() * (max - min) + min;
-  const btnHearts = document.querySelectorAll(".btn-heart");
-  const createParticle = (x, y) => {
-  const width = randomNumberInRange(6, 36);
-  const tx = randomNumberInRange(-360, 360);
-  const ty = randomNumberInRange(-360, 360);
-  const rz = randomNumberInRange(0, 480);
-  const delay = randomNumberInRange(0, 240);
-  const duration = randomNumberInRange(1000, 5000);
-  const particle = document.createElement("div");
-  particle.className = "heart";
-  document.body.appendChild(particle);
-  const anime = particle.animate(
-      [
-      {
-          opacity: 1,
-          transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(-45deg)`
-      },
-      {
-          opacity: 0,
-          transform: `translate(-50%, -50%) translate(${x + tx}px, ${y + ty}px) rotate(${-45 + rz}deg)`
-      }
-      ],
-      {
-      duration,
-      delay,
-      easing: easeOutQuart
-      }
-  );
-  anime.onfinish = (e) => e.srcElement.effect.target.remove();
-  };
-  const createParticles = (x, y, n) => {
-  for (let i = 0; i < n; i++) {
-      createParticle(x, y);
-  }
-  };
+  function heartff (){
+   
+    const easeOutQuart = "cubic-bezier(0.165, 0.84, 0.44, 1)";
+    const randomNumberInRange = (min, max) => Math.random() * (max - min) + min;
+    const btnHearts = document.querySelectorAll(".btn-heart");
+    const createParticle = (x, y) => {
+    const width = randomNumberInRange(6, 36);
+    const tx = randomNumberInRange(-360, 360);
+    const ty = randomNumberInRange(-360, 360);
+    const rz = randomNumberInRange(0, 480);
+    const delay = randomNumberInRange(0, 240);
+    const duration = randomNumberInRange(1000, 5000);
+    const particle = document.createElement("div");
+    particle.className = "heart";
+    document.body.appendChild(particle);
+    const anime = particle.animate(
+        [
+        {
+            opacity: 1,
+            transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(-45deg)`
+        },
+        {
+            opacity: 0,
+            transform: `translate(-50%, -50%) translate(${x + tx}px, ${y + ty}px) rotate(${-45 + rz}deg)`
+        }
+        ],
+        {
+        duration,
+        delay,
+        easing: easeOutQuart
+        }
+    );
+    anime.onfinish = (e) => e.srcElement.effect.target.remove();
+    };
+    const createParticles = (x, y, n) => {
+    for (let i = 0; i < n; i++) {
+        createParticle(x, y);
+    }
+    };
   btnHearts.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-      const x = e.clientX;
-      const y = e.clientY + window.scrollY;
-      createParticles(x, y, 50);
+    btn.addEventListener("click", (e) => {
+      console.log('sdfsfs')
+        const x = e.clientX;
+        const y = e.clientY + window.scrollY;
+        createParticles(x, y, 50);
+    });
   });
-  });
-
+  }
+  
   //버튼 값 담아두기
   function addData(text) {
     
@@ -68,6 +72,8 @@ const Quiz = () => {
 //버튼클릭시 1씩증가
 function increaseQuizNum() {
   setQuizNum(prevNum => prevNum + 1);
+
+  
 }
 
 //마지막 선택한 값 보여주기
@@ -90,6 +96,12 @@ async function insert(collect){
   router.push('/Mypage')
 }
 
+if(quizNum == 13){
+  setTimeout(()=>{
+    heartff();
+  },500)
+}
+
 if (showIntro) {
   return (
     <div className={styles.intro}>
@@ -109,12 +121,12 @@ if (quizNum === 13) {
             <img src='/img/quiz/icon02.png'/>
             <img src='/img/quiz/icon03.png'/>
           </div>
-          <button className="btn btn-danger btn-heart">ddfdf</button>
+          <button className="btn btn-danger btn-heart">
             <div className={styles.resultContainer} onClick={() => setBg(true)}>
               <p>내 결과 저장</p>
                 <img src='/img/quiz/heart.png' />
             </div>
-          
+          </button>
         </div>
         <div className={styles.vase}>
           <img className={styles.rstem} src='/img/quiz/rightStem.png'/>
