@@ -44,10 +44,9 @@ const MyContext = ({ children }) => {
         if (type == 'get') {
             await axios.get('/api').then(res => trans = res.data)
         } else if (type == 'post') {
-            await axios.post('/api', obj).then((res) => {
-                axios.post('/api/bbu', {communityId: res.data.insertId, user: userInfo.nickname, likeB: 0}).then((res) => {
-                return dataFun('get');
-            })})
+            await axios.post('/api', obj)
+            return dataFun('get');
+     
         }else if (type == 'put') {
             await axios.put(`/api/${obj.id}`, obj).then((res) => {
                 // console.log(res);
@@ -60,27 +59,26 @@ const MyContext = ({ children }) => {
         setData(trans);
     }
 
+
+
     async function likeFun(type, obj) {
         let trans;
         if (type == 'get') {
-            await axios.get('/api/bbu').then(res => trans = res.data)
+          await axios.get('/api/bbu').then(res => trans = res.data)
         } 
-        // else if (type == 'post') {
-        //     await axios.post('/api', obj).then((res) => {
-        //         axios.post('/api/bbu', {communityId: res.data.insertId, user: userInfo.nickname, likeB: 0}).then((res) => {
-        //         return dataFun('get');
-        //     })})
-        // }else if (type == 'put') {
-        //     await axios.put(`/api/${obj.id}`, obj).then((res) => {
-        //         console.log(res);
-        //     })
-        //     return dataFun('get');
-        // } else if (type === 'delete') {
-        //     await axios.delete(`/api/${obj}`)
-        //     return dataFun('get');
-        // }
+        else if (type == 'post') {
+            console.log(obj)
+          await axios.post('/api/bbu', obj)
+          return likeFun('get');
+        }
+        else if (type === 'delete') {
+            console.log(obj)
+            await axios.delete('/api/bbu', obj)
+            return likeFun('get');
+        }
+      
         setLike(trans);
-    }
+      }
 
 
     async function todoDataFun(type, obj) {
@@ -123,10 +121,6 @@ const MyContext = ({ children }) => {
         console.log(trans)
         setQuizData(trans);
     }
-
-
-
-
 
     useEffect(() => {
         dataFun('get');

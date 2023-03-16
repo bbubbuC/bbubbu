@@ -6,14 +6,22 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { DbContext } from '../MyContext';
 
 const List = () => {
-    const { data, dataFun, like, likeFun } = useContext(DbContext);
+    const { data, dataFun, like, likeFun, userInfo} = useContext(DbContext);
     const router = useRouter();
-    const [commentBox, setCommentBox] = useState(false)
+    const [commentBox, setCommentBox] = useState(false);
+    const [filterU, setFilterU] = useState([]);
 
-    console.log(data)
-    function dataget() {
+    const filterUFun = () => {
+        const filteredLikes = like.filter((likeU) => {
+            return likeU.user === userInfo.nickname;
+        });
+        setFilterU(filteredLikes);
+    };
+    
+     async function dataget() {
         dataFun('get');
         likeFun('get');
+        filterUFun();
     }
 
     function dataDelete(id) {
@@ -21,18 +29,9 @@ const List = () => {
         window.location.reload();
     }
 
-    // const changeImg = () => {
-    //     setLike(!like)
-    //     console.log(like)
-    // }
-
-    // const likeUpdate = () => {
-    //     console.log(obj)
-    //     const newLikeB = obj.likeB === 0 ? 1 : 0;
-    //     dataFun('put', { likeB: newLikeB });
-    // }
-
-    useEffect(dataget,[])
+    useEffect(()=> { dataget()},[])
+    useEffect(()=> { filterUFun()},[like])
+   
     return (
         <>
             <div>
@@ -42,7 +41,6 @@ const List = () => {
                             <div key={obj.id} className={styles.listBox}>
                                 <div className={styles.top}>
                                     <div className={styles.profile}>
-                                        {/* <Image src="/img/signup/2.png" alt='' width={40} height={40}/> */}
                                         <img src={obj.profile}/>
                                         <div className={styles.nickname}>
                                             <b>{obj.nickname}</b>
@@ -87,21 +85,27 @@ const List = () => {
                                             </button>  
                                         </div>
                                     </div>
-  
-                                    <button onClick={() => { 
-                                        dataFun('put', {id:obj.id, likeB: obj.likeB === 0 ? 1 : 0, nickname: obj.nickname, text: obj.text }) 
-                                        }} 
-                                        className={styles.like}
-                                    >
-                        
-                                        {
-                                            obj.likeB === 0
-                                            ? 
-                                                <Image  src="/img/community/w.png" alt='' width={28} height={26}/>
-                                            :
+
+                                    {
+                                        filterU.find((h) => h.communityId == obj.id) ? (
+                                            <button onClick={() => {
+                            
+                                                likeFun('delete', {params :{communityId:obj.id, user: userInfo.nickname}}); }} className={styles.like}
+                                            >
                                                 <Image  src="/img/community/r.png" alt='' width={28} height={26}/>
-                                        }
-                                    </button>
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => { 
+                                                console.log('sdfsdfsdfsdfsdfsd2322232232')
+                                                likeFun('post', {communityId:obj.id, user: userInfo.nickname, likeB:1 }); }} className={styles.like}
+                                               
+                                            
+                                            >
+                                                <Image  src="/img/community/w.png" alt='' width={28} height={26}/>               
+                                            </button>
+                                        )
+                                    }
+
                                 </div>
                                 { 
                                     commentBox && 
@@ -126,13 +130,13 @@ const List = () => {
                             </div>
                         ))
 
-
                     }
                     
         
 
                 </section>
             </div>
+        
         </>
     )
 }
