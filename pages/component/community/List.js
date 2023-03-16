@@ -6,11 +6,25 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { DbContext } from '../MyContext';
 
 const List = () => {
-    const { data, dataFun, like, likeFun } = useContext(DbContext);
+    const { data, dataFun, like, likeFun, userInfo} = useContext(DbContext);
     const router = useRouter();
-    const [commentBox, setCommentBox] = useState(false)
+    const [commentBox, setCommentBox] = useState(false);
+    const [filterU, setFilterU] = useState([]);
+
+
+        // like.filter((likeU) => {
+        //     if( likeU.user == session.data?.user.nickname){
+        //         return setFilterU(likeU)
+        //     }
+        // })
+
+
+    console.log(session.data?.user.nickname)
+    console.log(filterU)
 
     console.log(data)
+    console.log(like)
+    
     function dataget() {
         dataFun('get');
         likeFun('get');
@@ -21,16 +35,7 @@ const List = () => {
         window.location.reload();
     }
 
-    // const changeImg = () => {
-    //     setLike(!like)
-    //     console.log(like)
-    // }
-
-    // const likeUpdate = () => {
-    //     console.log(obj)
-    //     const newLikeB = obj.likeB === 0 ? 1 : 0;
-    //     dataFun('put', { likeB: newLikeB });
-    // }
+    
 
     useEffect(dataget,[])
     return (
@@ -89,18 +94,19 @@ const List = () => {
                                     </div>
   
                                     <button onClick={() => { 
-                                        dataFun('put', {id:obj.id, likeB: obj.likeB === 0 ? 1 : 0, nickname: obj.nickname, text: obj.text }) 
+                                        // dataFun('put', {id:obj.id, likeB: obj.likeB === 0 ? 1 : 0, nickname: obj.nickname, text: obj.text }) 
+                                        likeFun('post', {communityId:obj.id, user: userInfo.nickname, likeB:1 }) 
                                         }} 
                                         className={styles.like}
                                     >
                         
-                                        {
+                                        {/* {
                                             obj.likeB === 0
-                                            ? 
+                                            ?  */}
                                                 <Image  src="/img/community/w.png" alt='' width={28} height={26}/>
-                                            :
-                                                <Image  src="/img/community/r.png" alt='' width={28} height={26}/>
-                                        }
+                                            {/* :
+                                                <Image  src="/img/community/r.png" alt='' width={28} height={26}/> */}
+                                        {/* } */}
                                     </button>
                                 </div>
                                 { 
