@@ -69,6 +69,11 @@ const MyContext = ({ children }) => {
           await axios.post('/api/bbu', obj)
           return likeFun('get');
         }
+        else if (type === 'delete') {
+            console.log(obj)
+            await axios.delete('/api/bbu', obj)
+            return likeFun('get');
+        }
       
         setLike(trans);
       }

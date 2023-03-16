@@ -38,6 +38,7 @@ const handler = async (req, res) => {
     )
     res.json(data);
   }
+  
   switch (method) {
     case "GET": seletDataId(); break;
     case "PUT": updateDataId(); break;

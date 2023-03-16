@@ -10,24 +10,21 @@ const List = () => {
     const router = useRouter();
     const [commentBox, setCommentBox] = useState(false);
     const [filterU, setFilterU] = useState([]);
+    //const [update, setUpdate] = useState(0);
 
 
-        // like.filter((likeU) => {
-        //     if( likeU.user == session.data?.user.nickname){
-        //         return setFilterU(likeU)
-        //     }
-        // })
-
-
-    console.log(session.data?.user.nickname)
-    console.log(filterU)
-
-    console.log(data)
-    console.log(like)
+    const filterUFun = () => {
+        const filteredLikes = like.filter((likeU) => {
+            return likeU.user === userInfo.nickname;
+        });
+        setFilterU(filteredLikes);
+    };
     
-    function dataget() {
+     async function dataget() {
+        
         dataFun('get');
         likeFun('get');
+        filterUFun();
     }
 
     function dataDelete(id) {
@@ -35,12 +32,15 @@ const List = () => {
         window.location.reload();
     }
 
-    
+    useEffect(()=> { dataget()},[])
+    useEffect(()=> { filterUFun()},[like])
+const [st,set] = useState(false)
 
-    useEffect(dataget,[])
+   
     return (
         <>
             <div>
+                {/* <p>{update}</p> */}
                 <section>
                     {
                         data && data.map(obj => (
@@ -92,22 +92,28 @@ const List = () => {
                                             </button>  
                                         </div>
                                     </div>
-  
-                                    <button onClick={() => { 
-                                        // dataFun('put', {id:obj.id, likeB: obj.likeB === 0 ? 1 : 0, nickname: obj.nickname, text: obj.text }) 
-                                        likeFun('post', {communityId:obj.id, user: userInfo.nickname, likeB:1 }) 
-                                        }} 
-                                        className={styles.like}
-                                    >
-                        
-                                        {/* {
-                                            obj.likeB === 0
-                                            ?  */}
-                                                <Image  src="/img/community/w.png" alt='' width={28} height={26}/>
-                                            {/* :
-                                                <Image  src="/img/community/r.png" alt='' width={28} height={26}/> */}
-                                        {/* } */}
-                                    </button>
+
+                                    {
+                                        filterU.find((h) => h.communityId == obj.id) ? (
+                                            <button onClick={() => {
+                            
+                                                likeFun('delete', {params :{communityId:obj.id, user: userInfo.nickname}}); }} className={styles.like}
+                                            >
+                                                <Image  src="/img/community/r.png" alt='' width={28} height={26}/>
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => { 
+                                                console.log('sdfsdfsdfsdfsdfsd2322232232')
+                                                likeFun('post', {communityId:obj.id, user: userInfo.nickname, likeB:1 }); }} className={styles.like}
+                                               
+                                            
+                                            >
+                                                <Image  src="/img/community/w.png" alt='' width={28} height={26}/>               
+                                            </button>
+                                        )
+                                    }
+                                    {/* {update} */}
+
                                 </div>
                                 { 
                                     commentBox && 
@@ -131,7 +137,6 @@ const List = () => {
                                 }
                             </div>
                         ))
-
 
                     }
                     
