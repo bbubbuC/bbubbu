@@ -19,7 +19,7 @@ export default function Home() {
   }, [])
 
 
-  if (intro && count) {
+  if (intro) {
     return (
       <div className={styles.back}>
         <div className={styles.intro}>
