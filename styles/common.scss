@@ -86,7 +86,6 @@ div.H1{
 .heart {
     --heart-color: var(--danger-color);
     --heart-width: 16px;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -96,7 +95,6 @@ div.H1{
     background: var(--heart-color);
     transform: rotate(-45deg);
     pointer-events: none;
-
     &::before,
     &::after {
     position: absolute;
@@ -106,11 +104,9 @@ div.H1{
     background: inherit;
     border-radius: 50%;
     }
-
     &::before {
     top: -50%;
     }
-
     &::after {
     right: -50%;
     }

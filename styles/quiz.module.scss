@@ -55,22 +55,29 @@ main.main{
                     }
                 }
             }
-            .resultContainer{
+            > button{
                 position: absolute;
                 top: 17%;
-                right: 50%;
-                transform: translateX(50%);
-                p{
+                left: 50%;
+                background: transparent;
+                border: none;
+                .resultContainer{
                     position: absolute;
-                    top: 38%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-family: 'Inter', sans-serif;
-                    font-size: 50px;
-                    font-weight: 700;
-                    line-height: 50px;
-                    width: 400px;
-                    text-align: center;
+                    top: 17%;
+                    right: 50%;
+                    transform: translateX(50%);
+                    p{
+                        position: absolute;
+                        top: 38%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-family: 'Inter', sans-serif;
+                        font-size: 50px;
+                        font-weight: 700;
+                        line-height: 50px;
+                        width: 400px;
+                        text-align: center;
+                    }
                 }
             }
         }

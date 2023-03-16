@@ -6,12 +6,23 @@ import { useSession } from 'next-auth/react'
 import { DbContext } from './component/MyContext'
 
 const Mypage = () => {
-  const {quizData, userInfo} = useContext(DbContext);
+  const {quizData, userInfo,data} = useContext(DbContext);
   const {data:session, status} =useSession();
   const keydata = require('public/data/data.json');
   const [keywords, setKeywords] = useState()
 
-  console.log(userInfo);
+  const date = new Date(userInfo.date);
+  const today = new Date();
+  const diffTime = date.getTime()-today.getTime(); 
+  const diffDay =  Math.ceil(diffTime/(1000*60*60*24));
+
+  console.log(data,userInfo)
+
+  const myData = data.filter((obj)=>{
+    obj.nickname === userInfo.nickname
+  })
+  console.log(myData);
+
 
   useEffect(()=>{
 
@@ -52,7 +63,7 @@ const Mypage = () => {
           </Link>
           <div className={styles.middle}>
             <div className={styles.dday}>
-              <p>결혼식까지<br /><span>65일</span><br />남았습니다</p> 
+              <p>결혼식까지<br /><span>{diffDay}일</span><br />남았습니다</p> 
             </div>
             <div className={styles.character}>
               <div className={styles.charTitle}>취향분석표</div>
@@ -63,19 +74,6 @@ const Mypage = () => {
                       <li key={key}>#{item}</li>
                     ))
                   }
-                  {/* <li>#{kwArr.q01}</li>
-                  <li>#{keyword.q02}</li>
-                  <li>#{keyword.q03}</li>
-                  <li>#{keyword.q04}</li>
-                  <li>#{keyword.q05}</li>
-                  <li>#{keyword.q06}</li>
-                  <li>#{keyword.q07}</li>
-                  <li>#{keyword.q08}</li>
-                  <li>#{keyword.q09}</li>
-                  <li>#{keyword.q010}</li>
-                  <li>#{keyword.q011}</li>
-                  <li>#{keyword.q012}</li>
-                  <li>#{keyword.q013}</li> */}
                 </ul>
               </div>
             </div>
@@ -84,16 +82,8 @@ const Mypage = () => {
             <div className={styles.btn}>
               <button>내가 쓴글</button>
               <button>좋아요</button>
-              <button>보관</button>
             </div>
             <div className={styles.container}>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
               <div className={styles.content}></div>
               <div className={styles.content}></div>
             </div>
