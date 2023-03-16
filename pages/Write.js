@@ -26,7 +26,7 @@ const Write = () => {
 
     const create =(e) => {
          e.preventDefault();
-        dataFun('post',{ profile:userProfile, nickname:userInfo.nickname, ...inputValue });
+        dataFun('post',{ profile:userProfile, nickname:userInfo.nickname, name:userInfo.name, ...inputValue });
         router.push('/Community');
     }
 

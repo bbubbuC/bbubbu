@@ -18,7 +18,7 @@ console.log(collect)
         <div className={bg?`${styles.container}`:`${styles.container} ${styles.noneContainer}`}>
           <section className={styles.start} >
             <p>Move to Quiz</p>
-            <p>"Choose a better one"</p>
+            <p>Choose a better one</p>
             <div className={styles.btn} onClick={() => setBg(false)}>
               <p>Get Started</p>
               <img className={styles.rocket} src='/img/quiz/rocket.png' />

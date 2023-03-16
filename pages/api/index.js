@@ -15,10 +15,10 @@ const handler = async (req, res) => {
   }
 
   const insertData = async () => {
-    let {profile, nickname, title, text, date} = body;
+    let {profile, nickname,name, title, text, date} = body;
     let data = await executeQuery(
-      'insert into community (profile, nickname, title, text, date) value (?, ?, ?, ?, ?)',
-      [profile, nickname, title, text, date]
+      'insert into community (profile, nickname,name, title, text, date) value (?, ?, ? ,?, ?, ?)',
+      [profile, nickname, name, title, text, date]
     );
     // console.log(id)
     res.json(data)

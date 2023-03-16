@@ -102,8 +102,8 @@ function studio() {
                 >
                     {studioList.map((v, k) => {
                         return (
-                            <SwiperSlide className={styles.SwiperSlide}>
-                                <StudioCom value={v} key={k}></StudioCom>
+                            <SwiperSlide key={k} className={styles.SwiperSlide}>
+                                <StudioCom value={v} ></StudioCom>
                             </SwiperSlide>
                         )
                     })}
@@ -118,11 +118,11 @@ function studio() {
                     <p>관련 영상</p>
                 </div>
 
-                {/* <div className={styles.player}>
+                <div className={styles.player}>
                     <div id='player' >
                         <YouTube
                             // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
-                            // videoId={"0E3_EXhnp5M"}
+                            videoId={"0E3_EXhnp5M"}
                             //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할 수 있음.
                             //밑에서 더 설명하겠습니다.
                             opts={{
@@ -141,7 +141,7 @@ function studio() {
                     <div id='player' >
                         <YouTube
                             // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
-                            // videoId={"0E3_EXhnp5M"}
+                             videoId={"0E3_EXhnp5M"}
                             //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할 수 있음.
                             //밑에서 더 설명하겠습니다.
                             opts={{
@@ -160,7 +160,7 @@ function studio() {
                     <div id='player' >
                         <YouTube
                             // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
-                            // videoId={"0E3_EXhnp5M"}
+                             videoId={"0E3_EXhnp5M"}
                             //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할 수 있음.
                             //밑에서 더 설명하겠습니다.
                             opts={{
@@ -176,7 +176,7 @@ function studio() {
                             onEnd={(e) => { e.target.stopVideo(0); }}
                         />
                     </div>
-                </div> */}
+                </div>
             </div>
         </div >
     )
