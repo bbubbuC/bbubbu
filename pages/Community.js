@@ -9,6 +9,7 @@ import Image from 'next/image'
 const Community = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('ALL');
+  const moveToTop = () => (document.documentElement.scrollTop = 0);
 
   const handleClick = (category) => {
     setSelectedCategory(category);
@@ -66,7 +67,7 @@ const Community = () => {
           </div>
         </div>
       </article>
-      
+      <button className={styles.topBTN} onClick={moveToTop}>임시버튼(위로가기)</button> 
     </>
   )
 }

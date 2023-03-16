@@ -10,8 +10,6 @@ const List = () => {
     const router = useRouter();
     const [commentBox, setCommentBox] = useState(false);
     const [filterU, setFilterU] = useState([]);
-    //const [update, setUpdate] = useState(0);
-
 
     const filterUFun = () => {
         const filteredLikes = like.filter((likeU) => {
@@ -21,7 +19,6 @@ const List = () => {
     };
     
      async function dataget() {
-        
         dataFun('get');
         likeFun('get');
         filterUFun();
@@ -34,20 +31,16 @@ const List = () => {
 
     useEffect(()=> { dataget()},[])
     useEffect(()=> { filterUFun()},[like])
-const [st,set] = useState(false)
-
    
     return (
         <>
             <div>
-                {/* <p>{update}</p> */}
                 <section>
                     {
                         data && data.map(obj => (
                             <div key={obj.id} className={styles.listBox}>
                                 <div className={styles.top}>
                                     <div className={styles.profile}>
-                                        {/* <Image src="/img/signup/2.png" alt='' width={40} height={40}/> */}
                                         <img src={obj.profile}/>
                                         <div className={styles.nickname}>
                                             <b>{obj.nickname}</b>
@@ -112,7 +105,6 @@ const [st,set] = useState(false)
                                             </button>
                                         )
                                     }
-                                    {/* {update} */}
 
                                 </div>
                                 { 
@@ -144,6 +136,7 @@ const [st,set] = useState(false)
 
                 </section>
             </div>
+        
         </>
     )
 }
