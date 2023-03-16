@@ -12,12 +12,13 @@ export default function Home() {
   const [intro, setIntro] = useState(true);
 
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIntro(false);
-    }, 8000)
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIntro(false);
+  //   }, 8000)
     
-  }, [])
+  // }, [])
+
 
 
   if (intro) {
@@ -31,34 +32,35 @@ export default function Home() {
             <div className={styles.icon03}></div>
           </section>
 
+
           <section className={styles.box01}>
-            <div className={styles.introduce}>
+           <div className={styles.introduce}>
               {/* <Weather></Weather> */}
-            </div>
-            <Link href="/Community">
-              <div className={styles.community}>
-              </div>
-            </Link>
+             </div>
+             <Link href="/Community">
+               <div className={styles.community}>
+               </div>
+             </Link>
           </section>
 
-          <section className={styles.box02}>
-            <Link href="/CheckList">
-              <div className={styles.checkList}></div>
-            </Link>
+           <section className={styles.box02}>
+             <Link href="/CheckList">
+               <div className={styles.checkList}></div>
+             </Link>
             <Link href="/Invitation">
-              <div className={styles.invitation}></div>
-            </Link>
-            <Link href="/Quiz">
-              <div className={styles.quiz}></div>
-            </Link>
+               <div className={styles.invitation}></div>
+             </Link>
+             <Link href="/Quiz">
+               <div className={styles.quiz}></div>
+             </Link>
             <Link href="/SDM">
-              <div className={styles.sdm}></div>
-            </Link>
-          </section>
-        </main>
-      </div>
-    )
-  }
+               <div className={styles.sdm}></div>
+             </Link>
+           </section>
+         </main>
+       </div>
+     )
+   }
 
   return (
     <>
