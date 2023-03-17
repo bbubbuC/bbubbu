@@ -11,7 +11,7 @@ const Write = () => {
 
     console.log(userInfo);
 
-    const userProfile = userInfo.gender === "신부" ? userInfo.gprofile : userInfo.bprofile;
+    const userProfile = userInfo?.gender === "신부" ? userInfo?.gprofile : userInfo?.bprofile;
     const sampleTimestamp = Date.now();
     const date = new Date(sampleTimestamp); 
     const year = date.getFullYear().toString().slice(-2);
