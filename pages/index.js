@@ -24,7 +24,7 @@ export default function Home() {
   if (intro) {
     return (
       <div className={styles.back}>
-        <Weather/>
+        {/* <Weather/> */}
         {/* <Intro/> */}
         <main className={styles.main}>
           <section className={styles.iconBox}>
