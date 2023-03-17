@@ -8,9 +8,9 @@ const Invitation = () => {
     <>
       {/* <div className="H1">청첩장만들기</div> */}
       <Image className={styles.bbuuu} src="/img/main/bbuuu.png" alt='' width={80} height={70}/>
-      <div className={styles.fabric}>
+      {/* <div className={styles.fabric}>
         <iframe src="https://daun1309.github.io/fabric/"/>
-      </div>
+      </div> */}
     </>
   )
 }
