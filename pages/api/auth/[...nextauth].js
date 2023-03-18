@@ -19,6 +19,7 @@ export default NextAuth({
             // },
             //로그인을 담당하고 있는ㅂ부분
             async authorize(credentials) {
+                console.log("로그인체크")
                 const user = await prisma.users.findUnique({
                     where: {
                         name: String(credentials.name),

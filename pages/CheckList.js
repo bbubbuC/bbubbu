@@ -3,19 +3,41 @@ import { useRouter } from 'next/router';
 import styles from '@/styles/checkList.module.scss'
 import Image from 'next/image'
 import { DbContext } from './component/MyContext';
+import { useSession } from 'next-auth/react'
+import Swal from "sweetalert2";
 
 const CheckList = () => {
 
-  const { todoData, todoDataFun } = useContext(DbContext);
-  const note = useRef();
-  const elInput = useRef();
+  const { data: session, status } = useSession();
+  const { todoData, todoDataFun, userInfo } = useContext(DbContext);
   const initial = { todo: '' };
   const [inputValue, setInputValue] = useState(initial);
   const [editingId, setEditingId] = useState(null);
+  const router = useRouter();
+  const note = useRef();
+  const elInput = useRef();
+
+  useEffect(()=>{
+    if (status !== "authenticated") {
+      Swal.fire({
+        title: '로그인 후 이용해주세요!',
+        text: '',
+        imageUrl: 'https://ifh.cc/g/vGnSKW.png',
+        imageWidth: 175,
+        imageHeight: 150,
+        imageAlt: 'Custom image',
+        showCancelButton: false,
+        confirmButtonText: '로그인 하러가기 👉',
+        reverseButtons: true
+      }).then(() => {
+        router.push('/Login');
+      })
+    }
+  },[status])
 
   const create =(e) => {
       e.preventDefault();
-      todoDataFun('post',{...inputValue});
+      todoDataFun('post',{nickname:userInfo.nickname ,...inputValue});
       elInput.current.value = "";
       elInput.current.focus();
   }
@@ -42,7 +64,8 @@ const CheckList = () => {
     todoDataFun('put', { id: editingId, todo: inputValue.todo });
     setInputValue(initial);
     setEditingId(null);
-    window.location.reload();
+    elInput.current.value = "";
+    elInput.current.focus();
   }
   
 
@@ -91,8 +114,8 @@ const CheckList = () => {
                   <p>{obj.todo}</p>
                 </div>
                 <div className={styles.btnBox}>
-                  <button onClick={() => dataEdit(obj.id)}>수정</button>
-                  <button onClick={() => dataDelete(obj.id)}>삭제</button>
+                  <button className={styles.btnE} onClick={() => dataEdit(obj.id)}>수정</button>
+                  <button className={styles.btn} onClick={() => dataDelete(obj.id)}>삭제</button>
                 </div>
               </div>
             ))}

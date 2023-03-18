@@ -13,7 +13,7 @@ const List = () => {
 
     const filterUFun = () => {
         const filteredLikes = like.filter((likeU) => {
-            return likeU.user === userInfo.nickname;
+            return likeU.user === userInfo?.nickname;
         });
         setFilterU(filteredLikes);
     };

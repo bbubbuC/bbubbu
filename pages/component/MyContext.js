@@ -8,14 +8,10 @@ const MyContext = ({ children }) => {
 
     const [data, setData] = useState();
     const [todoData, todoSetData] = useState();
-
     const [quizData, setQuizData] = useState([]);
     const [users, setUsers] = useState([]);
     const [userInfo, setUserInfo] = useState();
     const [like, setLike] = useState([]);
-    const [s, setS] = useState();
-    const [d, setD] = useState();
-    const [m, setM] = useState();
     const session = useSession();
 
 
@@ -92,7 +88,7 @@ const MyContext = ({ children }) => {
             await axios.put(`/api/todo/${obj.id}`, obj).then((res) => {
                 console.log(res);
             })
-            return dataFun('get');
+            return todoDataFun('get');
         } else if (type === 'delete') {
             await axios.delete(`/api/todo/${obj}`)
             return todoDataFun('get');
