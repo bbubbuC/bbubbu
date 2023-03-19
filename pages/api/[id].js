@@ -19,10 +19,11 @@ const handler = async (req, res) => {
   //업데이트
   const updateDataId = async () => {
     try{
-        let { title, text } = body;
+        let { profile, nickname, name, title, text } = body;
+        console.log(body)
         let data = await executeQuery(
-         'update community set title=?, text=? where id=?',
-          [ title, text, Number(query.id)] 
+         'update community set profile=?, nickname=?, name=?, title=?, text=? where id=?',
+          [ profile, nickname, name, title, text, Number(query.id)] 
         )
         res.json(data)
     }catch(err){

@@ -45,7 +45,7 @@ const MyContext = ({ children }) => {
      
         }else if (type == 'put') {
             await axios.put(`/api/${obj.id}`, obj).then((res) => {
-                // console.log(res);
+                console.log(res);
             })
             return dataFun('get');
         } else if (type === 'delete') {

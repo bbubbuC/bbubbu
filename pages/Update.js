@@ -6,13 +6,12 @@ import styles from '@/styles/community.module.scss'
 import Image from 'next/image'
 
 const Update = () => {
-    const {dataFun} = useContext(DbContext);
+    const {dataFun, userInfo} = useContext(DbContext);
     const router = useRouter();
     const { query } = router;
 
-
+    const userProfile = userInfo?.gender === "신부" ? userInfo?.gprofile : userInfo?.bprofile;
     let initial = { id: query.id, title: query.title, text: query.text }
-    let likeB = {likeB: query.likeB}
     const [inputValue, setValue] = useState(initial);
 
     function valueChange(e) {
@@ -23,7 +22,7 @@ const Update = () => {
     }
     function create(e) {
         e.preventDefault()
-        dataFun('put',{likeB,...inputValue })
+        dataFun('put',{ profile:userProfile, nickname:userInfo.nickname, name:userInfo.name, ...inputValue })
         router.push('/Community');
     }
 
