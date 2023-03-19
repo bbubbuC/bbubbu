@@ -10,10 +10,18 @@ const List = () => {
     const router = useRouter();
     const [commentBox, setCommentBox] = useState(false);
     const [filterU, setFilterU] = useState([]);
+    // const [numArr, setNumArr] = useState([]);
+
+    // const filteredData = () =>{ data?.filter(item => {
+    //         const matchingLike = like?.find(likeItem => likeItem.communityId === item.id);
+    //         return setNumArr(matchingLike)
+    //     });
+    // }
+    // const count = numArr?.length;
 
     const filterUFun = () => {
         const filteredLikes = like.filter((likeU) => {
-            return likeU.user === userInfo.nickname;
+            return likeU.user === userInfo?.nickname;
         });
         setFilterU(filteredLikes);
     };
@@ -26,11 +34,11 @@ const List = () => {
 
     function dataDelete(id) {
         dataFun('delete',id)
-        window.location.reload();
+        // window.location.reload();
     }
 
     useEffect(()=> { dataget()},[])
-    useEffect(()=> { filterUFun()},[like])
+    useEffect(()=> { filterUFun();},[like])
     console.log(data)
    
     return (
@@ -48,14 +56,20 @@ const List = () => {
                                             <p>{obj.date}</p>  
                                         </div>
                                     </div>
-                                    <div className={styles.BTN}>
-                                        <button onClick={() => router.push({ pathname: '/Update', query: obj })}>
-                                            <Image  src="/img/community/edit.png" alt='' width={28} height={25}/>
-                                        </button>
-                                        <button onClick={() => dataDelete(obj.id)}>
-                                            <Image  src="/img/community/delete.png" alt='' width={28} height={28}/>
-                                        </button>
-                                    </div>
+
+                                    {
+                                        obj.nickname === userInfo?.nickname ?
+                                            <div className={styles.BTN}>
+                                                <button onClick={() => router.push({ pathname: '/Update', query: obj })}>
+                                                    <Image  src="/img/community/edit.png" alt='' width={28} height={25}/>
+                                                </button>
+                                                <button onClick={() => dataDelete(obj.id)}>
+                                                    <Image  src="/img/community/delete.png" alt='' width={28} height={28}/>
+                                                </button>
+                                            </div>
+                                        :
+                                            null
+                                    }
                                 </div>
     
                                 <div className={styles.middle}>

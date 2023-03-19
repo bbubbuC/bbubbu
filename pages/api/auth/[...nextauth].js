@@ -9,12 +9,17 @@ export default NextAuth({
     providers: [
         CredentialsProvider({
             name: "유저 이메일,페스워드 방식",
-            credentials: {
-                name: { label: "유저 이메일", type: "text"},
-                password: { label: "패스워드", type: "password" },
-            },
+                credentials: {
+                    name: { label: "유저 이메일", type: "text"},
+                    password: { label: "패스워드", type: "password" },
+                },
+            // credentials: {
+            //     name: "ehdehd",
+            //     password: "123456789",
+            // },
             //로그인을 담당하고 있는ㅂ부분
             async authorize(credentials) {
+                console.log("로그인체크")
                 const user = await prisma.users.findUnique({
                     where: {
                         name: String(credentials.name),

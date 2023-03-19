@@ -15,10 +15,11 @@ const handler = async (req, res) => {
   }
 
   const insertData = async () => {
-    let {todo} = body;
+    let {todo, nickname} = body;
+    console.log(body)
     let data = await executeQuery(
-      'insert into todo (todo) value (?)',
-      [todo]
+      'insert into todo (todo, nickname) value (?,?)',
+      [todo,nickname]
     );
     res.json(data)
   }

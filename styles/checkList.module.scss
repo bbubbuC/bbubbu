@@ -65,10 +65,27 @@ section.note{
         }
         div.btnBox{
             display: flex;
-            
+            position: relative;
             button{
                 border: none;
                 background-color: transparent;
+                font-weight: 600;
+                &:hover{
+                    font-weight: bold;
+                }
+            }
+            .btnD{
+                margin-left: 15px;
+                &::after{
+                    position: absolute;
+                    content: "";
+                    width: 2px;
+                    height: 90%;
+                    background-color: #8e8e8e;
+                    left: 51%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                }
             }
         }
     }
@@ -116,6 +133,21 @@ section.note{
         bottom: 25px;
         z-index: -1;
         right: -120px;
+        animation: moveUpDown 6s ease-in-out infinite;
+    }
+    @keyframes moveUpDown {
+        0% {
+            right: 0px;
+            transform: rotate(-20deg);
+        }
+        50% {
+            right: -120px;
+            transform: rotate(0deg);
+        }
+        100% {
+            right: 0px;
+            transform: rotate(-20deg);
+        }
     }
 }
 

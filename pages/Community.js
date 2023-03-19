@@ -5,8 +5,13 @@ import Bride from './component/community/Bride'
 import Groom from './component/community/Groom'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react'
+import Swal from "sweetalert2";
 
 const Community = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const moveToTop = () => (document.documentElement.scrollTop = 0);
@@ -14,6 +19,24 @@ const Community = () => {
   const handleClick = (category) => {
     setSelectedCategory(category);
   };
+
+  useEffect(()=>{
+    if (status !== "authenticated") {
+      Swal.fire({
+        title: '로그인 후 이용해주세요!',
+        text: '',
+        imageUrl: 'https://ifh.cc/g/vGnSKW.png',
+        imageWidth: 175,
+        imageHeight: 150,
+        imageAlt: 'Custom image',
+        showCancelButton: false,
+        confirmButtonText: '로그인 하러가기 👉',
+        reverseButtons: true
+      }).then(() => {
+        router.push('/Login');
+      })
+    }
+  },[status])
 
   return (
     <>
@@ -67,7 +90,10 @@ const Community = () => {
           </div>
         </div>
       </article>
-      <button className={styles.topBTN} onClick={moveToTop}>임시버튼(위로가기)</button> 
+      
+      <button className={styles.topBTN} onClick={moveToTop}>
+        <Image src="/img/community/arrow_up_circle_icon_128946.png" alt='' width={80} height={80}/>
+      </button> 
     </>
   )
 }
