@@ -99,8 +99,9 @@ const CheckList = () => {
         </form>
 
         <div className={styles.textBox}>
-          {todoData &&
+          {todoData && 
             todoData.map((obj) => (
+              obj.nickname === userInfo?.nickname ? 
               <div key={obj.id} className={styles.textList}>
                 <div className={styles.check}>
                   <input type="checkbox" onChange={(e) => {
@@ -118,6 +119,8 @@ const CheckList = () => {
                   <button className={styles.btn} onClick={() => dataDelete(obj.id)}>삭제</button>
                 </div>
               </div>
+              :
+              null
             ))}
         </div>
 

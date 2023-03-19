@@ -90,7 +90,10 @@ const Community = () => {
           </div>
         </div>
       </article>
-      <button className={styles.topBTN} onClick={moveToTop}>임시버튼(위로가기)</button> 
+      
+      <button className={styles.topBTN} onClick={moveToTop}>
+        <Image src="/img/community/arrow_up_circle_icon_128946.png" alt='' width={80} height={80}/>
+      </button> 
     </>
   )
 }
