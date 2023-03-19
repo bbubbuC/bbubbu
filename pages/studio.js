@@ -26,50 +26,66 @@ function studio() {
             studioName: "구호스튜디오",
             time: "09:00~19:00",
             url: "/img/SDM/studio/구호스튜디오/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            src: "http://www.kuhostudio.co.kr/",
+            adress: "성동구 아차산로15길 47-38 / 하이엔드 : 성동구 광나루로 294-4",
+            call: "0504-0536-0706"
         },
         {
             id: 2,
             studioName: "그날의기억",
             time: "09:00~19:00",
             url: "/img/SDM/studio/그날의기억/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            src: "http://www.dellastudio.kr",
+            adress: "서울 강남구 청담동 80-4 송제빌딩 B2",
+            call: "02-517-9457"
         },
         {
             id: 3,
             studioName: "달빛스쿠터",
             time: "09:00~19:00",
             url: "/img/SDM/studio/달빛스쿠터/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            src: "https://www.dalsstudio.com/",
+            adress: "서울 강남구 논현동 125-9 NSH빌딩",
+            call: "0504-0536-0725"
         },
         {
             id: 4,
             studioName: "더브라이드 스튜디오",
             time: "09:00~19:00",
             url: "/img/SDM/studio/더브라이드 스튜디오/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            src: "https://www.dalsstudio.com/",
+            adress: "서울 송파구 오금로 152 (송파동, 연세빌딩) 6층",
+            call: "02-417-4377"
+
         },
         {
             id: 5,
             studioName: "더청담스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            url: "/img/SDM/studio/더청담스튜디오/2.png",
+            src: "http://www.thechungdamstudio.com",
+            adress: "서울 강남구 도산대로 510 (청담동, 신한 오피스텔) 지하1층/ 청담스튜디오",
+            call: "02-3444-4155"
         },
         {
             id: 6,
-            studioName: "더청담스튜디오",
+            studioName: "라리스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            url: "/img/SDM/studio/라리스튜디오/3.jpg",
+            src: "http://rari.co.kr/",
+            adress: "서울 강남구 청담동 89-4 8F, 7F, 6F, B1",
+            call: "0504-0536-0689"
         },
         {
             id: 7,
-            studioName: "더청담스튜디오",
+            studioName: "라망스튜디오",
             time: "09:00~19:00",
-            url: "/img/SDM/studio/달빛스쿠터/1.jpg",
-            src: "http://www.kuhostudio.co.kr/"
+            url: "/img/SDM/studio/라망스튜디오/1.jpg",
+            src: "http://www.visualcompanylnc.com",
+            adress: "서울 강남구 도산대로66길 43 B1층",
+            call: "0504-0536-0674"
         },
+
     ]
 
 
@@ -94,22 +110,24 @@ function studio() {
 
                 <Swiper
                     slidesPerView={"auto"}
-                    spaceBetween={50}
+                    spaceBetween={5}
                     // autoplay={{ delay: 1500, disableOnInteraction: false }}
                     modules={[Autoplay, Pagination, Navigation]}
                     className={styles.cont}
-                    
+
                 >
                     {studioList.map((v, k) => {
                         return (
-                            <SwiperSlide key={k} className={styles.SwiperSlide}>
-                                <StudioCom value={v} ></StudioCom>
-                            </SwiperSlide>
+                            <>
+                                <SwiperSlide key={k} className={styles.SwiperSlide}>
+                                    <StudioCom value={v} studioName={v.studioName}></StudioCom>
+                                </SwiperSlide>
+                            </>
                         )
                     })}
                 </Swiper >
-
             </div >
+
 
             {/* 영상 */}
             <div div className={styles.videoPlayer} >
@@ -121,60 +139,43 @@ function studio() {
                 <div className={styles.player}>
                     <div id='player' >
                         <YouTube
-                            // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
                             videoId={"0E3_EXhnp5M"}
-                            //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할 수 있음.
-                            //밑에서 더 설명하겠습니다.
                             opts={{
                                 width: "486",
                                 height: "284",
                                 playerVars: {
                                     autoplay: 0, //자동재생 O
-                                    rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
                                     modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
                                 },
                             }}
-                            //이벤트 리스너
                             onEnd={(e) => { e.target.stopVideo(0); }}
                         />
                     </div>
-                    <div id='player' >
+                    <div id='player'>
                         <YouTube
-                            // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
-                             videoId={"0E3_EXhnp5M"}
-                            //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할 수 있음.
-                            //밑에서 더 설명하겠습니다.
+                            videoId={"sbnjKIeKEL4"}
                             opts={{
                                 width: "486",
                                 height: "284",
                                 playerVars: {
                                     autoplay: 0, //자동재생 O
-                                    rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
                                     modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
                                 },
                             }}
-                            //이벤트 리스너
-                            onEnd={(e) => { e.target.stopVideo(0); }}
-                        />
+                            onEnd={(e) => { e.target.stopVideo(0); }} />
                     </div>
-                    <div id='player' >
+                    <div id='player'>
                         <YouTube
-                            // videoId : https://www.youtube.com/watch?v={videoId} 유튜브 링크의 끝부분에 있는 고유한 아이디
-                             videoId={"0E3_EXhnp5M"}
-                            //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할 수 있음.
-                            //밑에서 더 설명하겠습니다.
+                            videoId={"e9uYIS-S8Ew"}
                             opts={{
                                 width: "486",
                                 height: "284",
                                 playerVars: {
                                     autoplay: 0, //자동재생 O
-                                    rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
                                     modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
                                 },
                             }}
-                            //이벤트 리스너
-                            onEnd={(e) => { e.target.stopVideo(0); }}
-                        />
+                            onEnd={(e) => { e.target.stopVideo(0); }} />
                     </div>
                 </div>
             </div>

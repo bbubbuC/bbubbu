@@ -11,17 +11,17 @@ const Mypage = () => {
   const keydata = require('public/data/data.json');
   const [keywords, setKeywords] = useState()
 
-  const date = new Date(userInfo.date);
+  const date = new Date(userInfo?.date);
   const today = new Date();
-  const diffTime = date.getTime()-today.getTime(); 
+  const diffTime = date?.getTime()-today.getTime(); 
   const diffDay =  Math.ceil(diffTime/(1000*60*60*24));
 
   console.log(data,userInfo)
 
-  const myData = data.filter((obj)=>{
-    obj.nickname === userInfo.nickname
-  })
-  console.log(myData);
+  // const myData = data.filter((obj)=>{
+  //   obj.nickname === userInfo.nickname
+  // })
+  // console.log(myData);
 
 
   useEffect(()=>{
@@ -49,7 +49,7 @@ const Mypage = () => {
           <img className={styles.icon01} src='/img/mypage/icon01.png' />
           <img className={styles.icon02} src='/img/mypage/icon02.png' />
           <div className={styles.box01}>
-            <p>안녕하세요 <br className={styles.br} />{userInfo.nickname} 님의 마이룸 입니다</p>
+            <p>안녕하세요 <br className={styles.br} />{userInfo?.nickname} 님의 마이룸 입니다</p>
             <div className={styles.icon03}>
               <img src='/img/mypage/face01.png' />
               <img src='/img/mypage/face02.png' />
