@@ -121,10 +121,6 @@ const List = () => {
                                         )
                                     }
 
-                                    {/* <p>{count}</p> */}
-    
-                                   
-
                                 </div>
                                 { 
                                     commentBox && 
