@@ -11,13 +11,13 @@ const SDM = () => {
           <Image src="/img/SDM/Group38.png" width={100} height={100} alt='' ></Image>
           <Link href="/studio">Studio</Link>
         </div>
-        <div className={styles.makeup}>
-        <Image src="/img/SDM/Group47.png" width={100} height={100} alt='' ></Image>
-          <Link href="/makeup">Makeup</Link>
-        </div>
         <div className={styles.dress}>
-        <Image src="/img/SDM/Group48.png" width={100} height={100} alt='' ></Image>
+          <Image src="/img/SDM/Group48.png" width={100} height={100} alt='' ></Image>
           <Link href="/dress">Dress</Link>
+        </div>
+        <div className={styles.makeup}>
+          <Image src="/img/SDM/Group47.png" width={100} height={100} alt='' ></Image>
+          <Link href="/makeup">Makeup</Link>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styles from '@/styles/edit.module.scss';
+import axios from "axios";
 
 const Edit = () => {
 
@@ -10,6 +11,7 @@ const Edit = () => {
 
     function create(e) { 
         e.preventDefault(e);
+        axios.put('/api/auth/signup');
     }
     function changeImg(e) {
         var newImg = e.target.src;
@@ -29,7 +31,7 @@ const Edit = () => {
         }else{
             setStyleName(false) 
         }
-
+    }
     return (
         <main className={styles.main}>
             <h2 className={styles.title}>EDIT</h2>
@@ -90,7 +92,7 @@ const Edit = () => {
             </div>
         </main>
     )
-    }
+    
 }
 
 export default Edit

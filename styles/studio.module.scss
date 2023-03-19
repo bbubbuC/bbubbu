@@ -27,7 +27,7 @@
     }
 
     .recommendStudio {
-        margin-bottom: 30px;
+        margin-bottom: 21px;
 
         .recommendStudioLogo {
             display: flex;
@@ -49,8 +49,8 @@
                 width: 360px;
 
                 .imgBox {
-                    width: 390px;
-                    height: 270px;
+                    width: 334px;
+                    height: 228px;
 
                     &.action {
                         background-color: black;
@@ -61,15 +61,15 @@
                         border: 5px solid #FFBCBC;
 
                         &.action {
-                            opacity: 0.6;
+                            opacity: 0.4;
                         }
                     }
 
 
 
                     .imgCont {
-                        width: 390px;
-                        height: 270px;
+                        width: 334px;
+                        height: 228px;
                         display: block;
                         position: absolute;
                         z-index: 999;
@@ -87,12 +87,12 @@
                             color: #FFBCBC;
                             font-weight: bold;
                             margin-bottom: 13px;
-                            padding-top: 35px;
+                            padding-top: 5px;
                         }
 
                         a {
                             background-color: #FFBCBC;
-                            color: #1D7161;
+                            color: #000;
                             width: 250px;
                             height: 60px;
                             text-align: center;
@@ -117,40 +117,41 @@
                         }
                     }
                 }
-            }
 
-
-        }
-
-
-        .videoPlayer {
-            .videoPlayerLogo {
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                margin-bottom: 20px;
-
-                p {
-                    font-size: 24px;
-                    font-weight: bold;
+                .info {
+                    border: 3px solid pink;
+                    width: 334px;
+                    height: 90px;
                 }
             }
 
 
-            .player {
-                display: flex;
-                gap: 60px;
-                align-items: center;
-                justify-content: space-between;
-                overflow: hidden;
-            }
-
-
         }
+
+    }
+
+    .videoPlayer {
+        .videoPlayerLogo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 20px;
+
+            p {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+
+
+        .player {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+
     }
 }
-
-
-
-
-
