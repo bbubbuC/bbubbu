@@ -3,28 +3,29 @@ import styles from '@/styles/mypage.module.scss'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { DbContext } from './component/MyContext'
+import KeepList from './component/mypage/MyData'
+import LikeList from './component/mypage/LikeData'
+import MyData from './component/mypage/MyData'
+import LikeData from './component/mypage/LikeData'
 
 const Mypage = () => {
-  const {quizData, userInfo,data} = useContext(DbContext);
+  const {quizData, userInfo,data,like} = useContext(DbContext);
   const {data:session, status} =useSession();
   const keydata = require('public/data/data.json');
   const [keywords, setKeywords] = useState()
-
-  const date = new Date(userInfo?.date);
-  const today = new Date();
-  const diffTime = date?.getTime()-today.getTime(); 
-  const diffDay =  Math.ceil(diffTime/(1000*60*60*24));
-
-  console.log(data,userInfo)
-
-  // const myData = data.filter((obj)=>{
-  //   obj.nickname === userInfo.nickname
-  // })
-  // console.log(myData);
-
+  let [diffDay,setDiffDay] = useState();
+  const [selectedCategory,setSelectedCategory] = useState('mydata');
+  
+  //dday
+  const ddayFun = () => {
+    const date = new Date(userInfo.date);
+    const today = new Date();
+    const diffTime = date.getTime()-today.getTime(); 
+    setDiffDay( Math.ceil(diffTime/(1000*60*60*24)));
+  }
 
   useEffect(()=>{
-
+    
     if(quizData.length){
       let kw,kwArr=[], db = quizData[quizData.length-1];
       keydata.forEach((obj,key) => {
@@ -35,11 +36,16 @@ const Mypage = () => {
         }
         kwArr[key] = kw;
       });
-
+      
       setKeywords(kwArr)
+      ddayFun()
+      
     }
   },[quizData])
 
+  const handleClick = (category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <main className={styles.main}>
@@ -71,20 +77,24 @@ const Mypage = () => {
                   {
                     keywords&&keywords.map((item,key) => (
                       <li key={key}>#{item}</li>
-                    ))
-                  }
+                      ))
+                    }
                 </ul>
   myData            </div>
             </div>
           </div>
           <div className={styles.bottom}>
             <div className={styles.btn}>
-              <button>내가 쓴글</button>
-              <button>좋아요</button>
+              <button className={selectedCategory === 'mydata' ? styles.selected : ''} onClick={()=>handleClick('mydata')}>내가 쓴글</button>
+              <button className={selectedCategory === 'likedata' ? styles.selected : ''} onClick={()=>handleClick('likedata')}>좋아요</button>
             </div>
             <div className={styles.container}>
-              <div className={styles.content}></div>
-              <div className={styles.content}></div>
+              <div className={selectedCategory === 'mydata' ? styles.block : styles.none}>
+                <MyData className={styles.mymy} />
+              </div>
+              <div className={selectedCategory === 'likedata' ? styles.block : styles.none}>
+                <LikeData />
+              </div>
             </div>
           </div>
         </div>
