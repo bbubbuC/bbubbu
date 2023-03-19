@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from '@/styles/mypage.module.scss'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { DbContext } from './component/MyContext'
@@ -55,7 +54,7 @@ const Mypage = () => {
           <img className={styles.icon01} src='/img/mypage/icon01.png' />
           <img className={styles.icon02} src='/img/mypage/icon02.png' />
           <div className={styles.box01}>
-            <p>안녕하세요 <br className={styles.br} />{userInfo.nickname} 님의 마이룸 입니다</p>
+            <p>안녕하세요 <br className={styles.br} />{userInfo?.nickname} 님의 마이룸 입니다</p>
             <div className={styles.icon03}>
               <img src='/img/mypage/face01.png' />
               <img src='/img/mypage/face02.png' />
@@ -81,7 +80,7 @@ const Mypage = () => {
                       ))
                     }
                 </ul>
-              </div>
+  myData            </div>
             </div>
           </div>
           <div className={styles.bottom}>

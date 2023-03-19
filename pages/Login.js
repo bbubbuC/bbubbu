@@ -13,7 +13,7 @@ export default function Login(props) {
 
     async function submitHandler(event) {
         event.preventDefault();
-
+        console.log('aaa')
         const enteredName = nameInputRef.current?.value;
         const enteredPassword = passwordInputRef.current?.value;
 
@@ -24,7 +24,7 @@ export default function Login(props) {
         });
 
         if (!result.error) {
-            setFormStatus(`로긘 성공!`);
+            setFormStatus(`로그인 성공!`);
             router.replace("/");
         } else {
             setFormStatus(result.error);
