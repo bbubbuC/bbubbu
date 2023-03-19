@@ -31,6 +31,7 @@ const List = () => {
 
     useEffect(()=> { dataget()},[])
     useEffect(()=> { filterUFun()},[like])
+    console.log(data)
    
     return (
         <>

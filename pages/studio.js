@@ -108,7 +108,7 @@ function studio() {
                     <p>추천 스튜디오</p>
                 </div>
 
-                <Swiper
+                {/* <Swiper
                     slidesPerView={"auto"}
                     spaceBetween={5}
                     // autoplay={{ delay: 1500, disableOnInteraction: false }}
@@ -118,14 +118,24 @@ function studio() {
                 >
                     {studioList.map((v, k) => {
                         return (
-                            <>
-                                <SwiperSlide key={k} className={styles.SwiperSlide}>
-                                    <StudioCom value={v} studioName={v.studioName}></StudioCom>
-                                </SwiperSlide>
-                            </>
+
+                            <SwiperSlide key={k} className={styles.SwiperSlide}>
+                                <StudioCom value={v} studioName={v.studioName}></StudioCom>
+                            </SwiperSlide>
                         )
                     })}
-                </Swiper >
+                </Swiper > */}
+
+                <div>
+                    {studioList.map((v, k) => {
+                        return (
+                            <div key={k} className={styles.SwiperSlide}>
+                                <StudioCom value={v} studioName={v.studioName} src={v.src} url={v.url}></StudioCom>
+                            </div>
+                        )
+                    })}
+                </div>
+
             </div >
 
 

@@ -5,7 +5,9 @@ import Link from 'next/link';
 
 
 
-const StudioCom = ({ value, studioName }) => {
+
+const StudioCom = ({ value,studioName,src,url }) => {
+
 
     // console.log(value.studioName)
     // console.log('sssss', studioName)
@@ -31,13 +33,14 @@ const StudioCom = ({ value, studioName }) => {
                                 // console.log('aaa')
                             }}><Image src="/img/SDM/Group 97.png" width={50} height={40} alt='' ></Image></button>
                     </div>
-                    <p>{value.studioName}</p>
-                    <Link href={`${value.src}`}>보러가기</Link>
+                    <p>{studioName}</p>
+                    <Link href={`${src}`}>보러가기</Link>
                 </div>
                 <Image
                     className={hover !== 'hover' ? `${styles.imsTest}` : `${styles.imsTest} ${styles.action}`}
                     src={value.url}
                     width={334} height={228}
+
                     alt='' />
             </div>
             <div className={styles.info}>
