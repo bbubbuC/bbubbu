@@ -13,6 +13,7 @@ const Mypage = () => {
   const {data:session, status} =useSession();
   const keydata = require('public/data/data.json');
   const [keywords, setKeywords] = useState()
+
   let [diffDay,setDiffDay] = useState();
   const [selectedCategory,setSelectedCategory] = useState('mydata');
   

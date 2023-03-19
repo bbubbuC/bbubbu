@@ -5,8 +5,12 @@ import Link from 'next/link';
 
 
 
+
 const StudioCom = ({ value,studioName,src,url }) => {
 
+
+    // console.log(value.studioName)
+    // console.log('sssss', studioName)
     const [hover, setHover] = useState('');
     // const [enter, setEnter] = useState('')
     return (
@@ -26,7 +30,7 @@ const StudioCom = ({ value,studioName,src,url }) => {
                     <div className={styles.contBtn}>
                         <button
                             onClick={() => {
-                                console.log('aaa')
+                                // console.log('aaa')
                             }}><Image src="/img/SDM/Group 97.png" width={50} height={40} alt='' ></Image></button>
                     </div>
                     <p>{studioName}</p>
@@ -34,11 +38,16 @@ const StudioCom = ({ value,studioName,src,url }) => {
                 </div>
                 <Image
                     className={hover !== 'hover' ? `${styles.imsTest}` : `${styles.imsTest} ${styles.action}`}
-                    src={url}
-                    width={390} height={270}
+                    src={value.url}
+                    width={334} height={228}
+
                     alt='' />
             </div>
-
+            <div className={styles.info}>
+                <p>#영업시간 : {value.time}</p>
+                <p>#주소 : {value.adress}</p>
+                <p>#전화번호 : {value.call}</p>
+            </div>
         </>
     )
 }
