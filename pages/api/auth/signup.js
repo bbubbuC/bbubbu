@@ -115,6 +115,27 @@ async function handler(req, res) {
             res.send(err);
         }
     }
+    if (req.method === 'PUT') {
+        const data = req.body;
+        console.log(req.body,'edit')
+        const { name, nickname, date, gender, gprofile } = data;
+        console.log(data)
+
+        
+        const idChack = await prisma.users.update({
+            where: {
+                name: name,
+                nickname: nickname,
+                date: date,
+                gender: gender,
+                profile: gprofile,
+            },
+        });
+        
+        }
+
+        //비밀번호 암호화
+        
 
     // if (req.method === 'GET') {
     //     try {
