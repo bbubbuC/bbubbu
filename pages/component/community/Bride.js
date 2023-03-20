@@ -1,21 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
-const bride = () => {
+const Bride = () => {
   return (
-    <>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    <div>bride</div>
-    
-    </>
-
-  )
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Image
+      style={{ margin: '50px 0px 50px 0px'}} 
+       src="/img/common/bbbbbb.png" width={325} height={325} alt='' ></Image>
+    </div>
+  );
 }
 
-export default bride
+export default Bride;

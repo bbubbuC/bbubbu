@@ -20,23 +20,23 @@ const Community = () => {
     setSelectedCategory(category);
   };
 
-  useEffect(()=>{
-    if (status !== "authenticated") {
-      Swal.fire({
-        title: '로그인 후 이용해주세요!',
-        text: '',
-        imageUrl: 'https://ifh.cc/g/vGnSKW.png',
-        imageWidth: 175,
-        imageHeight: 150,
-        imageAlt: 'Custom image',
-        showCancelButton: false,
-        confirmButtonText: '로그인 하러가기 👉',
-        reverseButtons: true
-      }).then(() => {
-        router.push('/Login');
-      })
-    }
-  },[status])
+  // useEffect(()=>{
+  //   if (status !== "authenticated") {
+  //     Swal.fire({
+  //       title: '로그인 후 이용해주세요!',
+  //       text: '',
+  //       imageUrl: 'https://ifh.cc/g/vGnSKW.png',
+  //       imageWidth: 175,
+  //       imageHeight: 150,
+  //       imageAlt: 'Custom image',
+  //       showCancelButton: false,
+  //       confirmButtonText: '로그인 하러가기 👉',
+  //       reverseButtons: true
+  //     }).then(() => {
+  //       router.push('/Login');
+  //     })
+  //   }
+  // },[status])
 
   return (
     <>

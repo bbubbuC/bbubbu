@@ -70,23 +70,12 @@ section.note{
                 border: none;
                 background-color: transparent;
                 font-weight: 600;
+                margin: 0px 5px;
                 &:hover{
                     font-weight: bold;
                 }
             }
-            .btnD{
-                margin-left: 15px;
-                &::after{
-                    position: absolute;
-                    content: "";
-                    width: 2px;
-                    height: 90%;
-                    background-color: #8e8e8e;
-                    left: 51%;
-                    top: 50%;
-                    transform: translate(-50%,-50%);
-                }
-            }
+         
         }
     }
 

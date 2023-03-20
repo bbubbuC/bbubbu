@@ -10,15 +10,7 @@ const List = () => {
     const router = useRouter();
     const [commentBox, setCommentBox] = useState(false);
     const [filterU, setFilterU] = useState([]);
-    // const [numArr, setNumArr] = useState([]);
-
-    // const filteredData = () =>{ data?.filter(item => {
-    //         const matchingLike = like?.find(likeItem => likeItem.communityId === item.id);
-    //         return setNumArr(matchingLike)
-    //     });
-    // }
-    // const count = numArr?.length;
-
+   
     const filterUFun = () => {
         const filteredLikes = like.filter((likeU) => {
             return likeU.user === userInfo?.nickname;
@@ -34,15 +26,80 @@ const List = () => {
 
     function dataDelete(id) {
         dataFun('delete',id)
-        // window.location.reload();
     }
 
     useEffect(()=> { dataget()},[])
     useEffect(()=> { filterUFun();},[like])
-    console.log(data)
-   
+
+    //표정 버튼
+    // function pop (e) {
+    //     let amount = 10;
+    //     switch (e.target.dataset.type) {
+    //       case 'shadow':
+    //       case 'line':
+    //         amount = 15;
+    //         break;
+    //     }
+      
+    //     if (e.clientX === 0 && e.clientY === 0) {
+    //       const bbox = e.target.getBoundingClientRect();
+    //       const x = bbox.left + bbox.width / 2;
+    //       const y = bbox.top + bbox.height / 2;
+    //       for (let i = 0; i < 10; i++) {
+    //         createParticle(x, y, e.target.dataset.type);
+    //       }
+    //     } else {
+    //       for (let i = 0; i < amount; i++) {
+    //         createParticle(e.clientX, e.clientY + window.scrollY, e.target.dataset.type);
+    //       }
+    //     }
+    //   }
+    //   function createParticle (x, y, type) {
+    //     const particle = document.createElement('particle');
+    //     document.body.appendChild(particle);
+    //     let width = Math.floor(Math.random() * 10 + 8);
+    //     let height = width;
+    //     let destinationX = (Math.random() - 0.5) * 200;
+    //     let destinationY = (Math.random() - 0.5) * 200;
+    //     let rotation = Math.random() * 520;
+    //     let delay = Math.random() * 200;
+        
+    //     switch (type) {
+      
+    //       case 'mario':
+    //         particle.style.backgroundImage = 'url(/img/community/icon06.png)';
+    //         break;
+    //     }
+        
+    //     particle.style.width = `${width}px`;
+    //     particle.style.height = `${height}px`;
+    //     const animation = particle.animate([
+    //       {
+    //         transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(0deg)`,
+    //         opacity: 1
+    //       },
+    //       {
+    //         transform: `translate(-50%, -50%) translate(${x + destinationX}px, ${y + destinationY}px) rotate(${rotation}deg)`,
+    //         opacity: 0
+    //       }
+    //     ], {
+    //       duration: Math.random() * 1000 + 5000,
+    //       easing: 'cubic-bezier(0, .9, .57, 1)',
+    //       delay: delay
+    //     });
+    //     animation.onfinish = removeParticle;
+    //   }
+    //   function removeParticle (e) {
+    //     e.srcElement.effect.target.remove();
+    //   }
+      
+    //   if (document.body.animate) {
+    //     document.querySelectorAll('button').forEach(button => button.addEventListener('click', pop));
+    //   }
+      
     return (
         <>
+            {/* <button data-type="mario">Mario particles</button> */}
             <div>
                 <section>
                     {
@@ -134,10 +191,10 @@ const List = () => {
                                             </div>
                                             <div className={styles.profileC}>
                                                 <div className={styles.profileCC}>
-                                                    <img src="obj.commentProfile"/>
-                                                    <p>obj.commentName</p>
+                                                    <img src="/img/signup/1.png"/>
+                                                    <p>동동</p>
                                                 </div>
-                                                <p>obj.comment</p>
+                                                <p>댓글</p>
                                             </div>
                                         </div>
                                     )
@@ -146,13 +203,10 @@ const List = () => {
                         ))
 
                     }
-                    
-        
-
                 </section>
             </div>
-        
-        </>
+
+    </>
     )
 }
 

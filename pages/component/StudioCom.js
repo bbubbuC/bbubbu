@@ -5,12 +5,9 @@ import Link from 'next/link';
 
 
 
+const StudioCom = ({ value,studioName,src,url }) => {
 
-const StudioCom = ({ value, studioName, src, url }) => {
 
-
-    // console.log(value.studioName)
-    // console.log('sssss', studioName)
     const [hover, setHover] = useState('');
     // const [enter, setEnter] = useState('')
     return (
@@ -40,7 +37,6 @@ const StudioCom = ({ value, studioName, src, url }) => {
                     className={hover !== 'hover' ? `${styles.imsTest}` : `${styles.imsTest} ${styles.action}`}
                     src={url}
                     width={334} height={228}
-
                     alt='' />
             </div>
             {/* <div className={hover !== 'hover' ? `${styles.info}` : `${styles.info} ${styles.action}`}> */}

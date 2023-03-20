@@ -13,7 +13,6 @@ export default function Login(props) {
 
     async function submitHandler(event) {
         event.preventDefault();
-        console.log('aaa')
         const enteredName = nameInputRef.current?.value;
         const enteredPassword = passwordInputRef.current?.value;
 
