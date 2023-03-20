@@ -4,7 +4,9 @@ import styles from '@/styles/studio.module.scss';
 import Link from 'next/link';
 
 
+
 const StudioCom = ({ value,studioName,src,url }) => {
+
 
     const [hover, setHover] = useState('');
     // const [enter, setEnter] = useState('')
@@ -28,15 +30,16 @@ const StudioCom = ({ value,studioName,src,url }) => {
                                 // console.log('aaa')
                             }}><Image src="/img/SDM/Group 97.png" width={50} height={40} alt='' ></Image></button>
                     </div>
-                    <p>{studioName}</p>
-                    <Link href={`${src}`}>보러가기</Link>
+                    <p>{value.studioName}</p>
+                    <Link href={`${value.src}`}>보러가기</Link>
                 </div>
                 <Image
                     className={hover !== 'hover' ? `${styles.imsTest}` : `${styles.imsTest} ${styles.action}`}
-                    src={value.url}
+                    src={url}
                     width={334} height={228}
                     alt='' />
             </div>
+            {/* <div className={hover !== 'hover' ? `${styles.info}` : `${styles.info} ${styles.action}`}> */}
             <div className={styles.info}>
                 <p>#영업시간 : {value.time}</p>
                 <p>#주소 : {value.adress}</p>

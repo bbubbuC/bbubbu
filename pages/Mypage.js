@@ -78,10 +78,10 @@ const Mypage = () => {
                   {
                     keywords&&keywords.map((item,key) => (
                       <li key={key}>#{item}</li>
-                      ))
-                    }
+                    ))
+                  }
                 </ul>
-  myData            </div>
+              </div>
             </div>
           </div>
           <div className={styles.bottom}>
@@ -91,7 +91,7 @@ const Mypage = () => {
             </div>
             <div className={styles.container}>
               <div className={selectedCategory === 'mydata' ? styles.block : styles.none}>
-                <MyData className={styles.mymy} />
+                <MyData />
               </div>
               <div className={selectedCategory === 'likedata' ? styles.block : styles.none}>
                 <LikeData />

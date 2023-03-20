@@ -45,10 +45,9 @@ export default function Signup(props) {
 
     const [formStatus, setFormStatus] = useState();
     const [idchack, setIdchack] = useState();
-
-
     const [genderBtn, setGenderBtn] = useState(false);
     const [ddaybtn, setDdayBtn] = useState(false)
+    const [enteredGender, setEnteredGender] = useState('신랑');
 
 
     const nameInputRef = useRef();
@@ -56,15 +55,11 @@ export default function Signup(props) {
     const passwordChackInputRef = useRef();
     const nicknameInputRef = useRef();
     const dateInputRef = useRef();
-
-    const [enteredGender, setEnteredGender] = useState();
-
-
-    const GmainImg = useRef();
-    const BmainImg = useRef();
+    const GmainImg = useRef("https://ifh.cc/g/7J9o2a.png");
+    const BmainImg = useRef("https://ifh.cc/g/7J9o2a.png");
 
     const { status } = useSession();
-    console.log(status)
+    // console.log(status)
     const router = useRouter();
 
     async function submitHandler(e) {
@@ -75,11 +70,10 @@ export default function Signup(props) {
         const enteredPasswordChack = passwordChackInputRef.current?.value;
         const enteredNickname = nicknameInputRef.current?.value;
         const enteredDate = dateInputRef.current?.value;
-
         const enteredGmainImg = GmainImg.current?.value;
         const enteredBmainImg = BmainImg.current?.value;
 
-        // console.log(GmainImg.current?.value)
+        console.log('aaa',GmainImg.current)
 
         try {
             const result = await createUser(
@@ -139,7 +133,7 @@ export default function Signup(props) {
         }
     }
 
-    function bbbb(e) {
+    function bbbb() {
         setGenderBtn(true);
         setEnteredGender('신부');
     }
@@ -147,6 +141,7 @@ export default function Signup(props) {
     function gggg() {
         setGenderBtn(false);
         setEnteredGender('신랑');
+        
     }
 
 
