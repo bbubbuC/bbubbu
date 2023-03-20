@@ -118,7 +118,7 @@ async function handler(req, res) {
     if (req.method === 'PUT') {
         const data = req.body;
         console.log(req.body,'edit')
-        const { name, nickname, date, gender, gprofile } = data;
+        const { name, nickname, date, gender, gprofile, bprofile } = data;
         console.log(data)
 
         

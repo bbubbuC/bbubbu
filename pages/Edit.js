@@ -8,10 +8,11 @@ const Edit = () => {
     let inputWedding=useRef();
     let [Wed,setWed]=useState(false);
     let [styleName,setStyleName]=useState(false);
+    let [inputvalue,setInputvalue] = useState([]);
 
-    function create(e) { 
+    function update(e) { 
         e.preventDefault(e);
-        axios.put('/api/auth/signup');
+        axios.put('/api/auth/signup', {inputvalue});
     }
     function changeImg(e) {
         var newImg = e.target.src;
@@ -37,14 +38,14 @@ const Edit = () => {
             <h2 className={styles.title}>EDIT</h2>
             <div className={styles.container}>
                 <img className={styles.smile} src="/img/edit/smile.png" />
-                <form onSubmit={create}>
+                <form onSubmit={update}>
                     <div className={styles.nickname}>
                         <label for="nickname">닉네임</label> <br />
                         <div>
                             <input type="text" placeholder="닉네임을 입력해주세요" name="nickname" />
                             <input type="button" value="중복확인" />
                         </div>
-                    </div> v
+                    </div> 
                     <div className={styles.gender}>
                         <label for="gender" className={styles.title}>본인선택</label> <br />
                         <div>
