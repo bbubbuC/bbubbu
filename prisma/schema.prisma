@@ -16,7 +16,7 @@ model users {
   password  String
   nickname String
   date String
-  gender  String 
+  gender  String
   gprofile String
   bprofile String
 }
