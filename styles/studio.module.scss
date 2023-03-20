@@ -118,11 +118,25 @@
                     }
                 }
 
-                .info {
-                    border: 3px solid pink;
+                // .info {
+                //     display: none;
+                //     border: 1px solid;
+                //     width: 334px;
+                //     height: 90px;
+
+                //     &.action {
+                //         display: block;
+
+                //     }
+                // }
+
+                .info{
+                    padding-top: 3px;
+                    border: 1px solid;
                     width: 334px;
-                    height: 90px;
+                    height: 110px;
                 }
+
             }
 
 
@@ -151,7 +165,5 @@
             justify-content: space-between;
             overflow: hidden;
         }
-
-
     }
 }
