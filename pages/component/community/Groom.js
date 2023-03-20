@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
-const groom = () => {
+const Groom = () => {
   return (
-    <div>groom</div>
-  )
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Image
+      style={{ margin: '50px 0px 50px 0px'}} 
+       src="/img/common/bbbbbb.png" width={325} height={325} alt='' ></Image>
+    </div>
+  );
 }
 
-export default groom
+export default Groom;

@@ -4,13 +4,8 @@ import styles from '@/styles/studio.module.scss';
 import Link from 'next/link';
 
 
-
-
 const StudioCom = ({ value,studioName,src,url }) => {
 
-
-    // console.log(value.studioName)
-    // console.log('sssss', studioName)
     const [hover, setHover] = useState('');
     // const [enter, setEnter] = useState('')
     return (
@@ -40,7 +35,6 @@ const StudioCom = ({ value,studioName,src,url }) => {
                     className={hover !== 'hover' ? `${styles.imsTest}` : `${styles.imsTest} ${styles.action}`}
                     src={value.url}
                     width={334} height={228}
-
                     alt='' />
             </div>
             <div className={styles.info}>
