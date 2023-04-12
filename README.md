@@ -1,1 +1,1 @@
-<img width="727" alt="bbubbu logo" src="https://user-images.githubusercontent.com/100025580/221751121-4d421769-1250-4055-8ec6-945f44549e85.png">
+![Group 2100](https://user-images.githubusercontent.com/100025580/231394586-be58feec-8039-4df8-88f4-9027dcd931ca.png)
